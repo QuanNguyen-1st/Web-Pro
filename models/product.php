@@ -7,10 +7,10 @@ class Product {
     public $description;
     public $category;
     public $date;
-    public $img;
+    public $default_img;
     public $feature_id;
 
-    public function __construct($id, $name, $price, $description, $category, $date, $img, $feature_id)
+    public function __construct($id, $name, $price, $description, $category, $date, $default_img, $feature_id)
     {
         $this->id = $id;
         $this->name = $name;
@@ -18,7 +18,7 @@ class Product {
         $this->description = $description;
         $this->category = $category;
         $this->date = $date;
-        $this->img = $img;
+        $this->default_img = $default_img;
         $this->feature_id = $feature_id;
     }
 
@@ -36,7 +36,7 @@ class Product {
                 $product['description'],
                 $product['category'],
                 $product['date'],
-                $product['img'],
+                $product['default_img'],
                 $product['feature_id']
             );
         }
@@ -60,7 +60,7 @@ class Product {
             $result['description'],
             $result['category'],
             $product['date'],
-            $result['img'],
+            $result['default_img'],
             $product['feature_id']
         );
         return $product;
@@ -84,7 +84,7 @@ class Product {
                 $product['description'],
                 $product['category'],
                 $product['date'],
-                $product['img'],
+                $product['default_img'],
                 $product['feature_id']
             );
         }
@@ -109,7 +109,7 @@ class Product {
                 $product['description'],
                 $product['category'],
                 $product['date'],
-                $product['img'],
+                $product['default_img'],
                 $product['feature_id']
             );
         }
@@ -136,18 +136,18 @@ class Product {
                 $product['description'],
                 $product['category'],
                 $product['date'],
-                $product['img'],
+                $product['default_img'],
                 $product['feature_id'],
             );
         }
         return $products;
     }
 
-    static function insert($name, $price, $description, $category, $img) {
+    static function insert($name, $price, $description, $category, $default_img) {
         $db = DB::getInstance();
         $req = $db->query("
-            INSERT INTO product (name, price, description, category, date, img)
-            VALUES ($name, $price, $description, $category, NOW(), $img);
+            INSERT INTO product (name, price, description, category, date, default_img)
+            VALUES ($name, $price, $description, $category, NOW(), $default_img);
         ");
         return $req;
     }
@@ -158,10 +158,10 @@ class Product {
         return $req;
     }
 
-    static function update($id, $name, $price, $description, $category, $date, $img) {
+    static function update($id, $name, $price, $description, $category, $date, $default_img) {
         $db = DB::getInstance();
         $req = $db->query("
-            UPDATE product SET name = $name, price = $price, description = $description, category = $category, date = $date, img = $img WHERE id = $id;
+            UPDATE product SET name = $name, price = $price, description = $description, category = $category, date = $date, default_img = $default_img WHERE id = $id;
         ");
         return $req;
     }

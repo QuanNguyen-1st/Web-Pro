@@ -5,18 +5,19 @@ class Stock {
     public $product_id;
     public $size;
     public $stock;
+    public $img;
 
-    public function __construct($id, $product_id, $size, $stock) {
+    public function __construct($id, $product_id, $size, $stock, $img) {
         $this->id = $id;
         $this->product_id = $product_id;
         $this->size = $size;
         $this->stock = $stock;
     }
 
-    static function check($product_id, $size) {
+    static function check($product_id, $size, $img) {
         $db = DB::getInstance();
         $req = $db->query("
-            SELECT 1 FROM stock WHERE product_id = $product_id AND size = $size
+            SELECT 1 FROM stock WHERE product_id = $product_id AND size = $size AND img = $img;
         ");
         if ($req->num_rows === 0) {
             return true;
@@ -24,12 +25,12 @@ class Stock {
         return false;
     }
 
-    static function insert($product_id, $size, $stock) {
+    static function insert($product_id, $size, $stock, $img) {
         if (Stock::check($product_id, $size)) {
             $db = DB::getInstance();
             $req = $db->query("
-                INSERT INTO stock (product_id, size, stock)
-                VALUES ($product_id, $size, $stock);
+                INSERT INTO stock (product_id, size, stock, img)
+                VALUES ($product_id, $size, $stock, $img);
             ");
             return $req;
         } else {
