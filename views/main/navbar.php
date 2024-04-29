@@ -29,7 +29,7 @@
                     <li><a href = "index.php?page=main&controller=blog&action=index">Blog</a></li>
                     <li><a href = "index.php?page=main&controller=about&action=index">About</a></li>
                     <li><a href = "index.php?page=main&controller=contact&action=index">Contact</a></li>
-                    <li id="not-mobile-bag"><a href = "#"><i class="far fa-shopping-bag"></i></a></li>
+                    <li id="not-mobile-bag"><a href = "index.php?page=main&controller=cart&action=index"><i class="far fa-shopping-bag"></i></a></li>
                     <span id="close-navbar"><i class="far fa-times"></i></span>
                 </ul>
             </nav>
