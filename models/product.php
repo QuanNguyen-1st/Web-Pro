@@ -37,7 +37,7 @@ class Product {
                 $product['category'],
                 $product['date'],
                 $product['img'],
-                $product['$feature_id']
+                $product['feature_id']
             );
         }
         return $products;
@@ -61,7 +61,7 @@ class Product {
             $result['category'],
             $product['date'],
             $result['img'],
-            $product['$feature_id']
+            $product['feature_id']
         );
         return $product;
     }
@@ -85,7 +85,7 @@ class Product {
                 $product['category'],
                 $product['date'],
                 $product['img'],
-                $product['$feature_id']
+                $product['feature_id']
             );
         }
         return $products;
@@ -110,7 +110,7 @@ class Product {
                 $product['category'],
                 $product['date'],
                 $product['img'],
-                $product['$feature_id']
+                $product['feature_id']
             );
         }
         return $products;
@@ -128,7 +128,7 @@ class Product {
             return null; // or handle accordingly based on your logic
         }
         $products = [];
-        foreach ($req->fetch_all(MYSQLI_ASSOC) as $cart) {
+        foreach ($req->fetch_all(MYSQLI_ASSOC) as $product) {
             $products[] = new Product(
                 $product['id'],
                 $product['name'],
@@ -137,7 +137,7 @@ class Product {
                 $product['category'],
                 $product['date'],
                 $product['img'],
-                $product['$feature_id']
+                $product['feature_id'],
             );
         }
         return $products;
