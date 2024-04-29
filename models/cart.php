@@ -7,16 +7,16 @@ class Cart {
     public $size;
     public $amount;
     public $purchase;
-    public $coupon_apply;
+    public $coupon_id;
 
-    public function __construct($user_id, $product_id, $size, $amount, $purchase, $coupon_apply)
+    public function __construct($user_id, $product_id, $size, $amount, $purchase, $coupon_id)
     {
         $this->user_id = $user_id;
         $this->product_id = $product_id;
         $this->size = $size;
         $this->amount = $amount;
         $this->purchase = $purchase;
-        $this->coupon_apply = $coupon_apply;
+        $this->coupon_id = $coupon_id;
     }
 
     static function getAll() {
@@ -27,10 +27,10 @@ class Cart {
         return $req;
     }
 
-    static function insert($user_id, $product_id, $size, $amount, $coupon_apply) {
+    static function insert($user_id, $product_id, $size, $amount, $coupon_id) {
         $db = DB::getInstance();
         $req = $db->query("
-            INSERT INTO cart (user_id, product_id, size, amount, purchase, coupon_apply)
+            INSERT INTO cart (user_id, product_id, size, amount, purchase, coupon_id)
             VALUES ($user_id, $product_id, $size, $amount, 0, '');
         ");
         return $req;
@@ -48,9 +48,9 @@ class Cart {
         return $req;
     }
 
-    static function makePurchase($id, $coupon_apply) {
+    static function makePurchase($id, $coupon_id) {
         $db = DB::getInstance();
-        $req = $db->query("UPDATE cart SET coupon_apply = $coupon_apply, purchase = 1 WHERE id = $id;");
+        $req = $db->query("UPDATE cart SET coupon_id = $coupon_id, purchase = 1 WHERE id = $id;");
         return $req;
     }
 
