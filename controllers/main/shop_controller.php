@@ -12,4 +12,9 @@ class ShopController extends BaseController
 	{
 		$this->render('index');
 	}
+
+	public function product()
+	{
+		$this->render('product');
+	}
 }
