@@ -8,8 +8,9 @@ class Cart {
     public $amount;
     public $purchase;
     public $coupon_id;
+    public $datePurchase;
 
-    public function __construct($user_id, $product_id, $size, $amount, $purchase, $coupon_id)
+    public function __construct($user_id, $product_id, $size, $amount, $purchase, $coupon_id, $datePurchase)
     {
         $this->user_id = $user_id;
         $this->product_id = $product_id;
@@ -17,6 +18,7 @@ class Cart {
         $this->amount = $amount;
         $this->purchase = $purchase;
         $this->coupon_id = $coupon_id;
+        $this->datePurchase = $datePurchase;
     }
 
     static function getAll() {
@@ -50,7 +52,7 @@ class Cart {
 
     static function makePurchase($id, $coupon_id) {
         $db = DB::getInstance();
-        $req = $db->query("UPDATE cart SET coupon_id = $coupon_id, purchase = 1 WHERE id = $id;");
+        $req = $db->query("UPDATE cart SET coupon_id = $coupon_id, purchase = 1, datePurchase = NOW() WHERE id = $id;");
         return $req;
     }
 
