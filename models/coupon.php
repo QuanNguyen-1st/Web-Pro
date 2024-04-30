@@ -23,7 +23,7 @@ class Coupon {
 
     static function getCoupon($number) {
         $db = DB::getInstance();
-        $req = $db->query("SELECT 1 FROM coupon WHERE coupon_num = $number");
+        $req = $db->query("SELECT 1 FROM coupon WHERE coupon_num = '$number'");
 
         if ($req->num_rows === 0) {
             return null; // or handle accordingly based on your logic
@@ -47,14 +47,14 @@ class Coupon {
         $db = DB::getInstance();
         $req = $db->query("
             INSERT INTO coupon (stock, coupon_num, discout, category_apply, id_apply, createAt, expireAt)
-            VALUES ($stock, $coupon_num, $discount, $category_apply, $id_apply, NOW(), $expireAt)
+            VALUES ($stock, '$coupon_num', $discount, '$category_apply', '$id_apply', NOW(), '$expireAt')
         ");
         return $req;
     }
 
     static function delete($id) {
         $db = DB::getInstance();
-        $req = $db->query("DELETE FROM coupon WHERE id = $id;");
+        $req = $db->query("DELETE FROM coupon WHERE id = '$id';");
         return $req;
     }
     

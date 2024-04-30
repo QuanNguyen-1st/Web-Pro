@@ -33,21 +33,21 @@ class Feature {
         $db = DB::getInstance();
         $req = $db->query("
             INSERT INTO feature (title, createAt)
-            VALUES ($title, NOW())
+            VALUES ('$title', NOW())
         ");
         return $req;
     }
 
     static function delete($id) {
         $db = DB::getInstance();
-        $req = $db->query("DELETE FROM feature WHERE id = $id;");
+        $req = $db->query("DELETE FROM feature WHERE id = '$id';");
         return $req;
     }
 
     static function update($id, $title) {
         $db = DB::getInstance();
         $req = $db->query("
-            UPDATE feature SET title = $title WHERE id = $id;
+            UPDATE feature SET title = '$title' WHERE id = '$id';
         ");
         return $req;
     }

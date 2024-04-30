@@ -46,7 +46,7 @@ class Product {
     static function getProduct($id)
     {
         $db = DB::getInstance();
-        $req = $db->query("SELECT * FROM product WHERE id = $id;");
+        $req = $db->query("SELECT * FROM product WHERE id = '$id';");
 
         if ($req->num_rows === 0) {
             return null; // or handle accordingly based on your logic
@@ -69,7 +69,7 @@ class Product {
     static function getFeaturePro($feature_id) {
         $db = DB::getInstance();
         $req = $db->query(
-            "SELECT * FROM product WHERE feature_id = $feature_id"
+            "SELECT * FROM product WHERE feature_id = '$feature_id'"
         );
         if ($req->num_rows === 0) {
             return null; // or handle accordingly based on your logic
@@ -122,7 +122,7 @@ class Product {
             SELECT * FROM product 
             JOIN cart AS C
             ON product.id = cart.product_id
-            WHERE C.purchase = 0 AND C.user_id = $user_id;
+            WHERE C.purchase = 0 AND C.user_id = '$user_id';
         ")
         if ($req->num_rows === 0) {
             return null; // or handle accordingly based on your logic
@@ -147,7 +147,7 @@ class Product {
         $db = DB::getInstance();
         $req = $db->query("
             INSERT INTO product (name, price, description, category, date, default_img)
-            VALUES ($name, $price, $description, $category, NOW(), $default_img);
+            VALUES ('$name', $price, '$description', '$category', NOW(), '$default_img');
         ");
         return $req;
     }
@@ -161,7 +161,7 @@ class Product {
     static function update($id, $name, $price, $description, $category, $date, $default_img) {
         $db = DB::getInstance();
         $req = $db->query("
-            UPDATE product SET name = $name, price = $price, description = $description, category = $category, date = $date, default_img = $default_img WHERE id = $id;
+            UPDATE product SET name = '$name', price = $price, description = '$description', category = '$category', date = '$date', default_img = '$default_img' WHERE id = '$id';
         ");
         return $req;
     }
