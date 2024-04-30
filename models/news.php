@@ -8,8 +8,9 @@ class News
     public $title;
     public $description;
     public $content;
+    public $img;
 
-    public function __construct($id, $status, $date, $title, $description, $content)
+    public function __construct($id, $status, $date, $title, $description, $content, $img)
     {
         $this->id = $id;
         $this->status = $status;
@@ -17,6 +18,7 @@ class News
         $this->title = $title;
         $this->description = $description;
         $this->content = $content;
+        $this->img = $img;
     }
 
     static function getAll()
@@ -32,7 +34,8 @@ class News
                 $news['date'],
                 $news['title'],
                 $news['description'],
-                $news['content']
+                $news['content'],
+                $news['img']
             );
         }
         return $lnews;
@@ -51,7 +54,8 @@ class News
                 $news['date'],
                 $news['title'],
                 $news['description'],
-                $news['content']
+                $news['content'],
+                $news['img']
             );
         }
         return $lnews;
@@ -68,20 +72,21 @@ class News
             $result['date'],
             $result['title'],
             $result['description'],
-            $result['content']
+            $result['content'],
+            $news['img']
         );
         return $news;
     }
 
-    static function insert($title, $description, $content)
+    static function insert($title, $description, $content, $img)
     {
         $status = true;
         $date = date("Y-m-d-h-i-s");
         $db = DB::getInstance();
         $req = $db->query(
             "
-            INSERT INTO news (status, date, title, description, content)
-            VALUES ($status, '$date', '$title', '$description', '$content')
+            INSERT INTO news (status, date, title, description, content, img)
+            VALUES ($status, '$date', '$title', '$description', '$content', '$img')
             ;");
         return $req;
     }
@@ -93,10 +98,10 @@ class News
         return $req;
     }
 
-    static function update($id, $title, $description, $content)
+    static function update($id, $title, $description, $content, $img)
     {
         $db = DB::getInstance();
-        $req = $db->query("UPDATE news SET content = '$content', title = '$title', description = '$description' WHERE id = $id;");
+        $req = $db->query("UPDATE news SET content = '$content', title = '$title', description = '$description', img = '$img' WHERE id = $id;");
         return $req;
     }
 
@@ -133,7 +138,8 @@ class News
                 $news['date'],
                 $news['title'],
                 $news['description'],
-                $news['content']
+                $news['content'],
+                $news['img']
             );
         }
         return $lnews;
