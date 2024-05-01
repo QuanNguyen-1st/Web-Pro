@@ -54,7 +54,7 @@
                 <img src="public/img/pay/pay.png" alt="">
             </div>
         </footer>
-    <script src="public/plugins/bootstrap-5.3.3-dist/bootstrap-5.3.3-dist/js/bootstrap.min.js"></script>
+    <script src="public/plugins/bootstrap-5.3.3-dist/bootstrap-5.3.3-dist/js/bootstrap.js"></script>
     <script src="public/js/script.js"></script>
     </body>
 </html>
