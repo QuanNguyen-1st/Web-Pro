@@ -20,8 +20,10 @@ $controllers_admin = array(
     //Admin controller
     'errors' => ['index'],
     'layouts' => ['index'], // Bổ sung thêm các hàm trong controllers
-    'members' => ['index'],
     'products' => ['index','add','edit','delete'],
+    'stocks' => ['index','add','edit','delete'],
+    'features' => ['index','add','edit','delete'],
+    'carts' => ['index','add','edit','delete'],
     'news' => ['index','add','edit','delete','hide'],
     'comments' => ['index','hide','add','edit','delete'],
     'admin' => ['index', 'add', 'edit', 'delete'],
@@ -35,8 +37,10 @@ $controllers = array(
 
   //Admin controller
   'errors' => ['index'],
-  'members' => ['index'],
   'products' => ['index','add','edit','delete'],
+  'stocks' => ['index','add','edit','delete'],
+  'features' => ['index','add','edit','delete'],
+  'carts' => ['index','add','edit','delete'],
   'news' => ['index','add','edit','delete','hide'],
   'comments' => ['index','hide','add','edit','delete'],
   'admin' => ['index', 'add', 'edit', 'delete'],
