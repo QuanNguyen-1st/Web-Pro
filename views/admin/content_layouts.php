@@ -81,17 +81,35 @@
 							</a>
 						</li>
 						<li class="nav-item">
+							<a class="nav-link" href="index.php?page=admin&controller=stocks&action=index">
+								<i class="nav-icon fas fa-sort-amount-up"></i>
+								<p>Quản lý Số lượng</p>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="index.php?page=admin&controller=features&action=index">
+								<i class="nav-icon fa fa-star"></i>
+								<p>Quản lý Feature</p>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="index.php?page=admin&controller=carts&action=index">
+								<i class="nav-icon fa fa-luggage-cart"></i>
+								<p>Quản lý Giỏ hàng</p>
+							</a>
+						</li>
+						<li class="nav-item">
 							<a class="nav-link" href="index.php?page=admin&controller=news&action=index">
 								<i class="nav-icon fa fa-file" aria-hidden="true"></i>
 								<p>Quản lý tin tức</p>
 							</a>
 						</li>
-						<li class="nav-item">
+						<!-- <li class="nav-item">
 							<a class="nav-link" href="index.php?page=admin&controller=company&action=index">
 								<i class="nav-icon fa fa-newspaper" aria-hidden="true"></i>
 								<p>Danh sách chi nhánh</p>
 							</a>
-						</li>
+						</li> -->
 					</ul>
 					<!-- Content Wrapper. Contains page content-->
 				</nav>
