@@ -1,6 +1,6 @@
 <?php
 require_once('controllers/admin/base_controller.php');
-class NewsController extends BaseController
+class CartsController extends BaseController
 {
 	public $activeArr = array('homeActive' => '', 'adminActive' => '', 'commentActive' => '', 'userActive' => '', 'productActive' => '', 'stockActive' => '', 'featureActive' => '', 'cartActive' => '', 'newsActive' => '');
 	function __construct()
