@@ -137,7 +137,6 @@
 
     <section id="products1" class="section-p1">
         <h2>New Products</h2>
-        <p>Title Title Title</p>
         <div class="pro-container">
             <div class="pro">
                 <img src="public/img/products/f1.jpg" alt="">

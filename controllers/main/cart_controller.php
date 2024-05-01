@@ -1,5 +1,7 @@
 <?php
 require_once('controllers/main/base_controller.php');
+// require_once('models/cart.php');
+// require_once('models/product.php');
 class CartController extends BaseController
 {
 	public $activeArr = array('homeActive' => '', 'shopActive' => '', 'blogActive' => '', 'aboutActive' => '', 'contactActive' => '', 'cartActive' => 'active');
