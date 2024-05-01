@@ -2,7 +2,7 @@
 require_once('controllers/admin/base_controller.php');
 class ProductsController extends BaseController
 {
-	public $activeArr = array('homeActive' => '', 'adminActive' => '', 'commentActive' => '', 'userActive' => '', 'productActive' => '', 'stockActive' => '', 'featureActive' => '', 'cartActive' => '', 'newsActive' => '');
+	public $activeArr = array('homeActive' => '', 'adminActive' => '', 'commentActive' => '', 'userActive' => '', 'productActive' => 'active', 'stockActive' => '', 'featureActive' => '', 'cartActive' => '', 'newsActive' => '');
 	function __construct()
 	{
 		$this->folder = 'layouts';
@@ -10,6 +10,7 @@ class ProductsController extends BaseController
 
 	public function index()
 	{
-		$this->render('index', $this->activeArr);
+		$data = array('activeArr' => $this->activeArr);
+		$this->render('index', $data);
 	}
 }
