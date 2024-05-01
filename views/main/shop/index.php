@@ -2,7 +2,7 @@
     include_once('views/main/navbar.php');
 ?>
 
-    <section id="page-header">
+    <section id="page-header" style="background-image: url('public/img/banner/b1.jpg');">
         <h2>#stayhome</h2>
         <p>Save more with coupons & up to 70% off</p>
     </section>
@@ -31,7 +31,7 @@
         </div>
     </section>
 
-    <section id="pagnation" class="section-p1" style="background-image: url('public/img/banner/b1.jpg');">
+    <section id="pagnation" class="section-p1">
         <a href="#">1</a>
         <a href="#">2</a>
         <a href="#"><i class="fal fa-long-arrow-alt-right"></i></a>
