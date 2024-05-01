@@ -5,7 +5,7 @@ class ProductsController extends BaseController
 	public $activeArr = array('homeActive' => '', 'adminActive' => '', 'commentActive' => '', 'userActive' => '', 'productActive' => 'active', 'stockActive' => '', 'featureActive' => '', 'cartActive' => '', 'newsActive' => '');
 	function __construct()
 	{
-		$this->folder = 'layouts';
+		$this->folder = 'products';
 	}
 
 	public function index()

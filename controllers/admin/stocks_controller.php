@@ -5,7 +5,7 @@ class StocksController extends BaseController
 	public $activeArr = array('homeActive' => '', 'adminActive' => '', 'commentActive' => '', 'userActive' => '', 'productActive' => '', 'stockActive' => 'active', 'featureActive' => '', 'cartActive' => '', 'newsActive' => '');
 	function __construct()
 	{
-		$this->folder = 'layouts';
+		$this->folder = 'stocks';
 	}
 
 	public function index()

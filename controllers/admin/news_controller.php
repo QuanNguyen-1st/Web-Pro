@@ -5,7 +5,7 @@ class NewsController extends BaseController
 	public $activeArr = array('homeActive' => '', 'adminActive' => '', 'commentActive' => '', 'userActive' => '', 'productActive' => '', 'stockActive' => '', 'featureActive' => '', 'cartActive' => '', 'newsActive' => 'active');
 	function __construct()
 	{
-		$this->folder = 'layouts';
+		$this->folder = 'news';
 	}
 
 	public function index()

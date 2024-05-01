@@ -5,7 +5,7 @@ class AdminController extends BaseController
 	public $activeArr = array('homeActive' => '', 'adminActive' => 'active', 'commentActive' => '', 'userActive' => '', 'productActive' => '', 'stockActive' => '', 'featureActive' => '', 'cartActive' => '', 'newsActive' => '');
 	function __construct()
 	{
-		$this->folder = 'layouts';
+		$this->folder = 'admin';
 	}
 
 	public function index()

@@ -5,7 +5,7 @@ class CommentsController extends BaseController
 	public $activeArr = array('homeActive' => '', 'adminActive' => '', 'commentActive' => 'active', 'userActive' => '', 'productActive' => '', 'stockActive' => '', 'featureActive' => '', 'cartActive' => '', 'newsActive' => '');
 	function __construct()
 	{
-		$this->folder = 'layouts';
+		$this->folder = 'comments';
 	}
 
 	public function index()

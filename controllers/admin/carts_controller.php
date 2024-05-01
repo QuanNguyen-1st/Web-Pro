@@ -5,7 +5,7 @@ class CartsController extends BaseController
 	public $activeArr = array('homeActive' => '', 'adminActive' => '', 'commentActive' => '', 'userActive' => '', 'productActive' => '', 'stockActive' => '', 'featureActive' => '', 'cartActive' => 'active', 'newsActive' => '');
 	function __construct()
 	{
-		$this->folder = 'layouts';
+		$this->folder = 'carts';
 	}
 
 	public function index()
