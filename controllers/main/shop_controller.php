@@ -13,6 +13,11 @@ class ShopController extends BaseController
 		$this->render('index', $this->activeArr);
 	}
 
+	public function add()
+	{
+		
+	}
+
 	// public function product()
 	// {
 	// 	$this->render('product');
