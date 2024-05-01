@@ -7,7 +7,7 @@
         <h2>Super value deals</h2>
         <h1>On all products</h1>
         <p>Save more with coupons & up to 70% off!</p>
-        <button>Shop Now</button>
+        <button id="shop-now-btn">Shop Now</button>
     </section>
 
     <section id="feature" class="section-p1">
@@ -188,7 +188,11 @@
             <h3>Not so long des</h3>
         </div>
     </section>
-
+<script>
+    $('#shop-now-btn').click(function(e) {
+        location.href = "index.php?page=main&controller=shop&action=index";
+    })
+</script>
 <?php
     include_once('views/main/footer.php');
 ?>

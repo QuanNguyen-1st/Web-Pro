@@ -8,7 +8,7 @@ $pages = array(
 $controllers_main = array(
   //Main controller
   'about' => ['index'],
-  'shop' => ['index', 'product', 'add'],
+  'shop' => ['index', 'add'],
   'contact' => ['index'],
   'blog' => ['index', 'comment', 'reply'],
   'cart' => ['index', 'coupon', 'purchase'],

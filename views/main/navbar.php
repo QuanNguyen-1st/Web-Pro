@@ -25,17 +25,17 @@
             <a href="#"><img src="public/img/logo.png" class="logo" alt=""></a>
             <nav>
                 <ul id="navbar">
-                    <li><a href = "index.php?page=main&controller=layouts&action=index">Home</a></li>
-                    <li><a href = "index.php?page=main&controller=shop&action=index">Shop</a></li>
-                    <li><a href = "index.php?page=main&controller=blog&action=index">Blog</a></li>
-                    <li><a href = "index.php?page=main&controller=about&action=index">About</a></li>
-                    <li><a href = "index.php?page=main&controller=contact&action=index">Contact</a></li>
-                    <li id="not-mobile-bag"><a href = "index.php?page=main&controller=cart&action=index"><i class="far fa-shopping-bag"></i></a></li>
+                    <li><a class="<?php echo"$homeActive"; ?>" href = "index.php?page=main&controller=layouts&action=index">Home</a></li>
+                    <li><a class="<?php echo"$shopActive"; ?>" href = "index.php?page=main&controller=shop&action=index">Shop</a></li>
+                    <li><a class="<?php echo"$blogActive"; ?>" href = "index.php?page=main&controller=blog&action=index">Blog</a></li>
+                    <li><a class="<?php echo"$aboutActive"; ?>" href = "index.php?page=main&controller=about&action=index">About</a></li>
+                    <li><a class="<?php echo"$contactActive"; ?>" href = "index.php?page=main&controller=contact&action=index">Contact</a></li>
+                    <li id="not-mobile-bag"><a class="<?php echo"$cartActive"; ?>" href = "index.php?page=main&controller=cart&action=index"><i class="far fa-shopping-bag"></i></a></li>
                     <span id="close-navbar"><i class="far fa-times"></i></span>
                 </ul>
             </nav>
             <div id="mobile">
-                <a href = "#"><i class="far fa-shopping-bag"></i></a>
+                <a class="<?php echo"$cartActive"; ?>" href = "index.php?page=main&controller=cart&action=index"><i class="far fa-shopping-bag"></i></a>
                 <i id="bar" class="fas fa-outdent"></i>
             </div>
         </header>

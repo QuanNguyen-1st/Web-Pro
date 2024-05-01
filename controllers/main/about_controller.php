@@ -1,8 +1,8 @@
 <?php
 require_once('controllers/main/base_controller.php');
-
 class AboutController extends BaseController
 {
+	public $activeArr = array('homeActive' => '', 'shopActive' => '', 'blogActive' => '', 'aboutActive' => 'active', 'contactActive' => '', 'cartActive' => '');
 	function __construct()
 	{
 		$this->folder = 'about';
@@ -10,6 +10,6 @@ class AboutController extends BaseController
 
 	public function index()
 	{
-		$this->render('index');
+		$this->render('index', $this->activeArr);
 	}
 }
