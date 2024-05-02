@@ -45,7 +45,11 @@ require_once('views/admin/content_layouts.php'); ?>
 								<tbody>
 
 								</tbody>
-
+								<tfoot>
+									<tr class="text-center">
+										<th></th>
+									</tr>
+								</tfoot>
 							</table>
 							<!-- Or Modal Here -->
 
