@@ -35,26 +35,20 @@ require_once('views/admin/content_layouts.php'); ?>
 				<div class="col-12">
 					<div class="card">
 						<div class="card-body">
-							<div class="row">
-								<div class="col-12">
-									<!-- Table Here -->
-									<table id="#" class="table table-bordered table-striped" style="margin-top:6px;">
-										<thead>
-											<tr class="text-center">
-												<th></th>
-											</tr>
-										</thead>
-										<tbody>
+							<!-- Table Here -->
+							<table id="#" class="table table-bordered table-striped" style="margin-top:6px;">
+								<thead>
+									<tr class="text-center">
+										<th></th>
+									</tr>
+								</thead>
+								<tbody>
 
-										</tbody>
-										<!-- Modal Here -->
+								</tbody>
 
+							</table>
+							<!-- Or Modal Here -->
 
-									</table>
-									<!-- Or Modal Here -->
-									
-								</div>
-							</div>
 						</div>
 					</div>
 				</div>
@@ -62,7 +56,6 @@ require_once('views/admin/content_layouts.php'); ?>
 		</div>
 	</section>
 </div>
-
 
 <!-- Add Javascripts -->
 
