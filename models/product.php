@@ -1,5 +1,6 @@
 <?php
 require_once('connection.php');
+require_once('cart.php');
 class Product {
     public $id;
     public $name;
@@ -125,18 +126,23 @@ class Product {
     static function getUserCart($user_id) {
         $db = DB::getInstance();
         $req = $db->query("
-            SELECT * FROM product 
+            SELECT 
+                product.*, 
+                C.*,
+                C.id AS cart_id
+            FROM product 
             JOIN cart AS C
-            ON product.id = cart.product_id
+            ON product.id = C.product_id
             WHERE C.purchase = 0 AND C.user_id = '$user_id';
         ")
         if ($req->num_rows === 0) {
             return null; // or handle accordingly based on your logic
         }
         $products = [];
+        $cart = [];
         foreach ($req->fetch_all(MYSQLI_ASSOC) as $product) {
             $products[] = new Product(
-                $product['id'],
+                $product['product_id'],
                 $product['name'],
                 $product['price'],
                 $product['description'],
@@ -146,8 +152,19 @@ class Product {
                 $product['default_img'],
                 $product['feature_id'],
             );
+
+            $cart[] = new Cart(
+                $product['cart_id'],
+                $product['user_id'],
+                $product['product_id'],
+                $product['size'],
+                $product['amount'],
+                $product['purchase'],
+                $product['coupon_id'],
+                $product['datePurchase']
+            )
         }
-        return $products;
+        return array($products, $cart);
     }
 
     static function insert($name, $price, $description, $rating, $category, $default_img) {

@@ -33,7 +33,7 @@
                 echo '<div class="pro"><i class="nav-icon fa fa-luggage-cart"></i><p>It sure is empty here.</p></div>';
                 echo '<div class="pro"><i class="nav-icon fa fa-luggage-cart"></i><p>It sure is empty here.</p></div>';
             } else {
-                foreach ($pro as $products) {
+                foreach ($products as $pro) {
                     echo '
                     <div class="pro">
                         <img src="'.$pro->default_img.'" alt="">
@@ -52,7 +52,7 @@
                             </div>
                             <h4>$'.$pro->price.'</h4>
                         </div>
-                        <a role="button" data-bs-toggle="modal" data-bs-target="modal-'.$pro->id.'"><i class="fal fa-shopping-cart cart"></i></a>
+                        <a role="button" data-bs-toggle="modal" data-bs-target="#modal-'.$pro->id.'"><i class="fal fa-shopping-cart cart"></i></a>
                     </div>';
                 }
             }

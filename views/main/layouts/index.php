@@ -63,7 +63,7 @@
                 echo '<div class="pro"><i class="nav-icon fa fa-luggage-cart"></i><p>It sure is empty here.</p></div>';
                 echo '<div class="pro"><i class="nav-icon fa fa-luggage-cart"></i><p>It sure is empty here.</p></div>';
             } else {
-                foreach ($featurepro as $featurepros) {
+                foreach ($featurepros as $featurepro) {
                     echo '
                     <div class="pro">
                         <img src="'.$featurepro->default_img.'" alt="">
@@ -82,7 +82,7 @@
                             </div>
                             <h4>$'.$featurepro->price.'</h4>
                         </div>
-                        <a role="button" data-bs-toggle="modal" data-bs-target="modal-feature-'.$featurepro->id.'"><i class="fal fa-shopping-cart cart"></i></a>
+                        <a role="button" data-bs-toggle="modal" data-bs-target="#modal-feature-'.$featurepro->id.'"><i class="fal fa-shopping-cart cart"></i></a>
                     </div>';
                 }
             }
@@ -106,7 +106,7 @@
                 echo '<div class="pro"><i class="nav-icon fa fa-luggage-cart"></i><p>It sure is empty here.</p></div>';
                 echo '<div class="pro"><i class="nav-icon fa fa-luggage-cart"></i><p>It sure is empty here.</p></div>';
             } else {
-                foreach ($newpro as $newpros) {
+                foreach ($newpros as $newpro) {
                     echo '
                     <div class="pro">
                         <img src="'.$newpro->default_img.'" alt="">
@@ -125,7 +125,7 @@
                             </div>
                             <h4>$'.$newpro->price.'</h4>
                         </div>
-                        <a role="button" data-bs-toggle="modal" data-bs-target="modal-newpro-'.$newpro->id.'"><i class="fal fa-shopping-cart cart"></i></a>
+                        <a role="button" data-bs-toggle="modal" data-bs-target="#modal-newpro-'.$newpro->id.'"><i class="fal fa-shopping-cart cart"></i></a>
                     </div>';
                 }
             }

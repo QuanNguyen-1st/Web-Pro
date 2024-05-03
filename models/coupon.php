@@ -5,18 +5,14 @@ class Coupon {
     public $stock;
     public $coupon_num;
     public $discount;
-    public $category_apply;
-    public $id_apply;
     public $createAt;
     public $expireAt;
 
-    public function __construct($stock, $coupon_num, $discount, $category_apply, $id_apply, $createAt, $expireAt)
+    public function __construct($stock, $coupon_num, $discount, $createAt, $expireAt)
     {
         $this->stock = $stock;
         $this->coupon_num = $coupon_num;
         $this->discount = $discount;
-        $this->category_apply = $category_apply;
-        $this->id_apply = $id_apply;
         $this->createAt = $createAt;
         $this->expireAt = $expireAt;
     }
@@ -34,8 +30,6 @@ class Coupon {
             $result['stock'],
             $result['coupon_num'],
             $result['discount'],
-            $result['category_apply'],
-            $result['id_apply'],
             $result['createAt'],
             $result['expireAt'],
         );
@@ -43,11 +37,11 @@ class Coupon {
         return $coupon;
     }
 
-    static function insert($stock, $coupon_num, $discount, $category_apply, $id_apply, $expireAt) {
+    static function insert($stock, $coupon_num, $discount, $expireAt) {
         $db = DB::getInstance();
         $req = $db->query("
-            INSERT INTO coupon (stock, coupon_num, discout, category_apply, id_apply, createAt, expireAt)
-            VALUES ($stock, '$coupon_num', $discount, '$category_apply', '$id_apply', NOW(), '$expireAt')
+            INSERT INTO coupon (stock, coupon_num, discout, createAt, expireAt)
+            VALUES ($stock, '$coupon_num', $discount, NOW(), '$expireAt')
         ");
         return $req;
     }

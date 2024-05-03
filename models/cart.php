@@ -32,8 +32,8 @@ class Cart {
     static function insert($user_id, $product_id, $size, $amount, $coupon_id) {
         $db = DB::getInstance();
         $req = $db->query("
-            INSERT INTO cart (user_id, product_id, size, amount, purchase, coupon_id)
-            VALUES ('$user_id', '$product_id', $size, $amount, 0, '');
+            INSERT INTO cart (user_id, product_id, size, amount, purchase, coupon_id, datePurchase)
+            VALUES ('$user_id', '$product_id', $size, $amount, 0, '', '');
         ");
         return $req;
     }

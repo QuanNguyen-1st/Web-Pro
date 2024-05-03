@@ -26,7 +26,7 @@ class LoginController extends BaseController
 
             foreach ($requiredFields as $field) {
                 if (empty($_POST[$field])) {
-                    $err = "Vui lòng điền đầy đủ thông tin.";
+                    $err = "Please fill in the required fields.";
                     $data = array('err' => $err);
                     $this->render('index', $data);
                     ob_clean(); // Clean (erase) the output buffer
@@ -46,7 +46,7 @@ class LoginController extends BaseController
             }
             else 
             {
-                $err = "Sai tài khoản hoặc mật khẩu";
+                $err = "Wrong account or password";
                 $data = array('err' => $err);
                 $this->render('index', $data);
                 ob_clean(); // Clean (erase) the output buffer

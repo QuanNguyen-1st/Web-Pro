@@ -6,11 +6,18 @@
         
         <div class="form-container">
             <h1>Login</h1>
-            <form>
+            <form action="index.php?page=main&controller=login&action=index" method="POST">
                 <input name="email" type="text" placeholder="Your E-mail">
                 <input name="password" type="password" placeholder="Your Password">
                 <p>Don't have an account? <a href="index.php?page=main&controller=register&action=index">Sign Up Here!</a></p>
-                <button class="normal">Login</button>
+                <?php 
+                if (isset($err))
+                {
+                    echo '<p class="login-box-msg" style="color: red">' . $err . '</p>';
+                    unset($err);
+                }
+                ?>
+                <button class="normal" name="submit-btn" type="submit">Login</button>
             </form>
         </div>
     </section>

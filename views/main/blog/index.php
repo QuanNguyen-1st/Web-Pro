@@ -33,7 +33,7 @@
                     <div class="text-container">
                         <h4>'.$blog->title.'</h4>
                         <p>'.$blog->description.'</p>
-                        <a role="button" data-bs-target="modal" data-bs-modal="modal-'.$blog->id.'">CONTINUE READING</a>
+                        <a role="button" data-bs-toggle="modal" data-bs-target="#modal-'.$blog->id.'">CONTINUE READING</a>
                     </div>
                 </div>
                 ';
