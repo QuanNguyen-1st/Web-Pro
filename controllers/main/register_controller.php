@@ -20,8 +20,8 @@ class RegisterController extends BaseController
 
         foreach ($requiredFields as $field) {
             if (empty($_POST[$field])) {
-                $error = "Vui lòng điền đầy đủ thông tin.";
-                $data = array('error' => $error);
+                $err = "Please fill in the required fields";
+                $data = array('err' => $err);
                 ob_start(); // Start output buffering
                 $this->render('index', $data);
                 ob_end_flush(); // Flush output buffer and turn off output buffering
@@ -44,8 +44,8 @@ class RegisterController extends BaseController
             exit();
         }
         
-        $error = "Email đã tồn tại";
-        $data = array('error' => $error);
+        $err = "Email already exists.";
+        $data = array('err' => $err);
         ob_start(); // Start output buffering
         $this->render('index', $data);
         ob_end_flush(); // Flush output buffer and turn off output buffering

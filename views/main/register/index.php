@@ -4,9 +4,9 @@
     
     <section id="register" class="section-p1" style="background-image: url('public/img/hero4.png');">
         <div class="form-container">
-            <form>
+            <form action="index.php?page=main&controller=register&action=submit" method="POST">
                 <input name="email" type="text" placeholder="E-mail">
-                <input name="password" type="text" placeholder="Password">
+                <input name="pass" type="password" placeholder="Password">
                 <input name="lname" type="text" placeholder="Last Name">
                 <input name="fname" type="text" placeholder="First Name">
                 <input name="birthday" type="text" placeholder="Year of Birth">
@@ -23,7 +23,14 @@
                     </div>
                 </div>
                 <p>Already have an account? <a href="index.php?page=main&controller=login&action=index">Sign In Here!</a></p>
-                <button class="normal">Sign Up</button>
+                <?php 
+                if (isset($err))
+                {
+                    echo '<p class="login-box-msg" style="color: red">' . $err . '</p>';
+                    unset($err);
+                }
+                ?>
+                <button class="normal" type="submit">Sign Up</button>
             </form>
         </div>
     </section>
