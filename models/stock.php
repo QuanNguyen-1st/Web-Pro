@@ -12,6 +12,39 @@ class Stock {
         $this->product_id = $product_id;
         $this->size = $size;
         $this->stock = $stock;
+        $this->img = $img;
+    }
+
+    static function checkAvail($product_id, $size, $img, $amount) {
+        $db = DB::getInstance();
+        $req = $db->query("
+            SELECT 1 FROM stock WHERE product_id = $product_id AND size = $size AND img = '$img' AND amount >= $amount;
+        ");
+        if ($req->num_rows === 0) {
+            return true;
+        }
+        return false;
+    }
+
+    static function getAlt($product_id) {
+        $db = DB::getInstance();
+        $req = $db->query("
+            SELECT 4 FROM stock WHERE product_id = $product_id AND stock > 0;
+        ");
+        if ($req->num_rows === 0) {
+            return null;
+        }
+        $stocks = [];
+        foreach ($req->fetch_all(MYSQLI_ASSOC) as $stock) {
+            $stocks[] = new Stock(
+                $stock['id'],
+                $stock['product_id'],
+                $stock['size'],
+                $stock['stock'],
+                $stock['img']
+            );
+        }
+        return $stocks;
     }
 
     static function check($product_id, $size, $img) {

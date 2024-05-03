@@ -39,8 +39,8 @@
                         <tr class="cart-item">
                             <td><a role="button" data-bs-pro="'.$cart[$i]->id.'" data-bs-toggle="modal" data-bs-target="#deleteProductConfirm"><i class="far fa-times-circle"></i></a></td>
                             <td><img src="'.$cart[$i]->img.'" alt=""></td>
-                            <td>'.$product->name.'</td>
-                            <td>$<span class="unit-price">'.$product->price.'</span></td>
+                            <td>'.$products[$i]->name.'</td>
+                            <td>$<span class="unit-price">'.$products[$i]->price.'</span></td>
                             <td><input type="number" value="1" min="1" required></td>
                             <td>$<span class="subtotal-price"></span></td>
                         </tr>

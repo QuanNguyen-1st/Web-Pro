@@ -21,7 +21,7 @@ $('.add-to-cart').on('click', (e) => {
             }
             else
             {
-                
+                alert('Not enough stocks');
             }
         }
     })

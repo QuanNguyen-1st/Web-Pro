@@ -1,7 +1,7 @@
 <?php
 require_once('controllers/main/base_controller.php');
-// require_once('models/product.php');
-// require_once('models/cart.php');
+require_once('models/product.php');
+require_once('models/cart.php');
 class ShopController extends BaseController
 {
 	public $activeArr = array('homeActive' => '', 'shopActive' => 'active', 'blogActive' => '', 'aboutActive' => '', 'contactActive' => '', 'cartActive' => '');
@@ -17,6 +17,8 @@ class ShopController extends BaseController
 
 		$products = [];
 
+		$products = Product::getAll();
+
 		$totalPages = ceil(count($products) / $itemsPerPage);
 		$startIndex = ($currentPage - 1) * $itemsPerPage;
 		$endIndex = $startIndex + $itemsPerPage;
@@ -26,14 +28,4 @@ class ShopController extends BaseController
 		$data = array('activeArr' => $this->activeArr, 'products' => $products, 'currentPage' => $currentPage, 'totalPages' => $totalPages);
 		$this->render('index', $data);
 	}
-
-	public function add()
-	{
-		
-	}
-
-	// public function product()
-	// {
-	// 	$this->render('product');
-	// }
 }

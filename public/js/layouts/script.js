@@ -21,7 +21,7 @@ $('.add-fea-cart').on('click', (e) => {
             }
             else
             {
-                
+                alert('Not enough stocks');
             }
         }
     })
@@ -50,7 +50,7 @@ $('.add-new-cart').on('click', (e) => {
             }
             else
             {
-                
+                alert('Not enough stocks');
             }
         }
     })

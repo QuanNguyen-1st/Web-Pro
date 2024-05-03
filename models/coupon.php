@@ -1,7 +1,6 @@
 <?php
 require_once('connection.php');
 class Coupon {
-    public $id;
     public $stock;
     public $coupon_num;
     public $discount;
