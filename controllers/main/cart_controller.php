@@ -12,7 +12,10 @@ class CartController extends BaseController
 
 	public function index()
 	{
-		$data = array('activeArr' => $this->activeArr);
+		// $email = $_SESSION['guest'];
+
+		$products = [];
+		$data = array('activeArr' => $this->activeArr, 'products' => $products);
 		$this->render('index', $data);
 	}
 }

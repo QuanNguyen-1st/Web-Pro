@@ -12,7 +12,18 @@ class BlogController extends BaseController
 
 	public function index()
 	{
-		$data = array('activeArr' => $this->activeArr);
+		$currentPage = isset($_GET['pg']) ? $_GET['pg'] : 1;
+        $itemsPerPage = 3;
+
+		$blogs = [];
+
+		$totalPages = ceil(count($blogs) / $itemsPerPage);
+		$startIndex = ($currentPage - 1) * $itemsPerPage;
+		$endIndex = $startIndex + $itemsPerPage;
+
+		$blogs = array_slice($blogs, $startIndex, $endIndex);
+		
+		$data = array('activeArr' => $this->activeArr, 'blogs' => $blogs, 'currentPage' => $currentPage, 'totalPages' => $totalPages);
 		$this->render('index', $data);
 	}
 }

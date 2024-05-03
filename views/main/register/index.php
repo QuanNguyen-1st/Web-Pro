@@ -1,0 +1,80 @@
+<?php 
+    include_once('views/main/navbar.php');
+?>
+    
+    <section id="register" class="section-p1" style="background-image: url('public/img/hero4.png');">
+        <div class="form-container">
+            <form>
+                <input name="email" type="text" placeholder="E-mail">
+                <input name="password" type="text" placeholder="Password">
+                <input name="lname" type="text" placeholder="Last Name">
+                <input name="fname" type="text" placeholder="First Name">
+                <input name="birthday" type="text" placeholder="Year of Birth">
+                <input name="phone" type="text" placeholder="Phone Number">
+                Gender:
+                <div class="gender-container">
+                    <div>
+                        <input type="radio" id="male" name="gender" value="1">
+                        <label for="male">Male</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="female" name="gender" value="0">
+                        <label for="female">Female</label>
+                    </div>
+                </div>
+                <p>Already have an account? <a href="index.php?page=main&controller=login&action=index">Sign In Here!</a></p>
+                <button class="normal">Sign Up</button>
+            </form>
+        </div>
+    </section>
+
+    <section id="news" class="section-p1"></section>
+
+    <footer class="section-p1">
+        <div class="col">
+            <img class="logo" src="public/img/logo.png" alt="">
+            <h4>Contact</h4>
+            <p><strong>Address: 268 Ly Thuong Kiet, Ward 14, District 10, Ho Chi Minh City</strong></p>
+            <p><strong>Phone:</strong></p>
+            <p><strong>Hours:</strong></p>
+            <div class="social">
+                <h4>Follow Us</h4>
+                <div class="icon">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-pinterest-p"></i>
+                    <i class="fab fa-youtube"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <h4>About</h4>
+            <a href="#">About Us</a>
+            <a href="#">Delivery Information</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Contact Us</a>
+        </div>
+        <div class="col">
+            <h4>My Account</h4>
+            <a href="#">Sign In</a>
+            <a href="#">View Cart</a>
+            <a href="#">My Wishlist</a>
+            <a href="#">Track My Order</a>
+            <a href="#">Help</a>
+        </div>
+        <div class="col app">
+            <h4>Install App</h4>
+            <p>From App Store or Google Play</p>
+            <div class="row">
+                <img src="public/img/pay/app.jpg" alt="">
+                <img src="public/img/pay/play.jpg" alt="">
+            </div>
+            <p>Securd Payment Gateways</p>
+            <img src="public/img/pay/pay.png" alt="">
+        </div>
+    </footer>
+    <script src="public/js/script.js"></script>
+</body>
+</html>

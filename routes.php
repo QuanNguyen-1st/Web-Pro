@@ -48,10 +48,10 @@ $controllers = array(
 
   //Main controller
   'about' => ['index'],
-  'shop' => ['index', 'product', 'add'],
+  'shop' => ['index'],
   'contact' => ['index'],
   'blog' => ['index', 'comment', 'reply'],
-  'cart' => ['index', 'coupon', 'purchase'],
+  'cart' => ['index', 'add', 'coupon', 'purchase'],
   'register' => ['index', 'submit', 'editInfo']
 );
 

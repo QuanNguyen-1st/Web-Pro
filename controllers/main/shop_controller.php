@@ -12,7 +12,18 @@ class ShopController extends BaseController
 
 	public function index()
 	{
-		$data = array('activeArr' => $this->activeArr);
+		$currentPage = isset($_GET['pg']) ? $_GET['pg'] : 1;
+        $itemsPerPage = 25;
+
+		$products = [];
+
+		$totalPages = ceil(count($products) / $itemsPerPage);
+		$startIndex = ($currentPage - 1) * $itemsPerPage;
+		$endIndex = $startIndex + $itemsPerPage;
+
+		$products = array_slice($products, $startIndex, $endIndex);
+
+		$data = array('activeArr' => $this->activeArr, 'products' => $products, 'currentPage' => $currentPage, 'totalPages' => $totalPages);
 		$this->render('index', $data);
 	}
 

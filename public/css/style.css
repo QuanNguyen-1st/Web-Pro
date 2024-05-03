@@ -296,6 +296,10 @@ header {
     color: rgba(243, 181, 25);
 }
 
+#products1 .pro .des i.rating-bad {
+    color: #e1e1e1;
+}
+
 #products1 .pro .des h4 {
     padding-top: 14px;
     font-size: 15px;
@@ -690,6 +694,7 @@ footer a:hover {
     font-weight: 700;
     position: relative;
     transition: 0.3s;
+    cursor: pointer;
 }
 
 #blog-container .text-container a:after {
@@ -700,6 +705,7 @@ footer a:hover {
     background-color: #000;
     top: 4px;
     right: -60px;
+    cursor: pointer;
 }
 
 #blog-container .text-container a:hover {
@@ -987,8 +993,117 @@ footer a:hover {
     outline: none;
 }
 
-
 /* Cart page End */
+
+/* Login page Start */
+#login {
+    min-height: 90vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    /* flex-direction: column; */
+    align-items: center;
+}
+
+#login .form-container {
+    width: 100%;
+}
+
+#login .form-container h1 {
+    margin-bottom: 10px;
+}
+
+#login form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#login form input {
+    width: 50%;
+    line-height: 50px;
+    padding-left: 10px;
+    margin-bottom: 10px;
+    border-color: #e1e1e1;
+    border-radius: 15px;
+    border: none;
+    outline: none;
+}
+
+#login form button {
+    width: 50%;
+    border-radius: 15px;
+    border: none;
+    outline: none;
+    background-color: var(--main-color);
+    color: #fff;
+}
+
+#login form button:hover {
+    background-color: #fff;
+    color: var(--main-color);
+}
+
+/* Login page End */
+
+/* Register page Start */
+
+#register {
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+}
+
+#register .form-container {
+    width: 100%;
+}
+
+#register form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#register form input {
+    width: 50%;
+    line-height: 50px;
+    padding-left: 10px;
+    margin-bottom: 10px;
+    border-color: #e1e1e1;
+    border-radius: 15px;
+    border: none;
+    outline: none;
+}
+
+#register form button {
+    width: 50%;
+    border-radius: 15px;
+    border: none;
+    outline: none;
+    background-color: var(--main-color);
+    color: #fff;
+}
+
+#register form button:hover {
+    background-color: #fff;
+    color: var(--main-color);
+}
+
+#register form .gender-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 5px 0 0 0;
+}
+
+#register form .gender-container div {
+    display: flex;
+    flex-direction: row;
+    margin-right: 20px;
+}
+
+/* Register page End */
 
 /* Media query Start */
 @media (max-width: 799px) {
@@ -1116,6 +1231,24 @@ footer a:hover {
     }
 
     /* Contact page End */
+
+    /* Login page Start */
+    
+    #login form input,
+    #login form button {
+        width: 100%;
+    }
+
+    /* Login page End */
+
+    /* Register page Start */
+
+    #register form input,
+    #register form button {
+        width: 100%;
+    }
+
+    /* Register page End */
 }
 
 @media (max-width: 476.98px) {

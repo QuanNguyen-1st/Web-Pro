@@ -13,7 +13,10 @@ class LayoutsController extends BaseController
 
 	public function index()
 	{
-		$data = array('activeArr' => $this->activeArr);
+		$featurepros = [];
+		$newpros = [];
+		$feature = '';
+		$data = array('activeArr' => $this->activeArr, 'featurepros' => $featurepros, 'newpros' => $newpros, 'feature' => $feature);
 		$this->render('index', $data);
 	}
 }

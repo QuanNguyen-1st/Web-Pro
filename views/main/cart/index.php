@@ -1,3 +1,9 @@
+<?php 
+    if (!isset($_SESSION['guest'])) {
+        header("Location: index.php?page=main&controller=login&action=index");
+    }
+?>
+
 <?php
     include_once('views/main/navbar.php');
 ?>

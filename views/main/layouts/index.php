@@ -39,9 +39,9 @@
 
     <section id="products1" class="section-p1">
         <h2>Featured Products</h2>
-        <p>Title Title Title</p>
+        <p><?php echo ''.@$feature->title.'' ?></p>
         <div class="pro-container">
-            <div class="pro">
+            <!-- <div class="pro">
                 <img src="public/img/products/f1.jpg" alt="">
                 <div class="des">
                     <span>brand</span>
@@ -55,76 +55,38 @@
                     </div>
                     <h4>$price</h4>
                 </div>
-                <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
-            </div>
-
-            <div class="pro">
-                <img src="public/img/products/f1.jpg" alt="">
-                <div class="des">
-                    <span>brand</span>
-                    <h5>Name Name Name</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4>$price</h4>
-                </div>
-                <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
-            </div>
-
-            <div class="pro">
-                <img src="public/img/products/f1.jpg" alt="">
-                <div class="des">
-                    <span>brand</span>
-                    <h5>Name Name Name</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4>$price</h4>
-                </div>
-                <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
-            </div>
-
-            <div class="pro">
-                <img src="public/img/products/f1.jpg" alt="">
-                <div class="des">
-                    <span>brand</span>
-                    <h5>Name Name Name</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4>$price</h4>
-                </div>
-                <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
-            </div>
-
-            <div class="pro">
-                <img src="public/img/products/f1.jpg" alt="">
-                <div class="des">
-                    <span>brand</span>
-                    <h5>Name Name Name</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4>$price</h4>
-                </div>
-                <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
-            </div>
+                <a><i class="fal fa-shopping-cart cart"></i></a>
+            </div> -->
+            <?php 
+            if (count($featurepros) == 0) {
+                echo '<div class="pro"><i class="nav-icon fa fa-luggage-cart"></i><p>It sure is empty here.</p></div>';
+                echo '<div class="pro"><i class="nav-icon fa fa-luggage-cart"></i><p>It sure is empty here.</p></div>';
+                echo '<div class="pro"><i class="nav-icon fa fa-luggage-cart"></i><p>It sure is empty here.</p></div>';
+            } else {
+                foreach ($featurepro as $featurepros) {
+                    echo '
+                    <div class="pro">
+                        <img src="'.$featurepro->default_img.'" alt="">
+                        <div class="des">
+                            <span>brand</span>
+                            <h5>'.$featurepro->name.'</h5>
+                            <div class="star">
+                    ';
+                    for ($i = 0; $i < floor($featurepro->rating); $i++) {
+                        echo '<i class="fas fa-star"></i>';
+                    }
+                    for ($i = 0; $i < 5 - floor($featurepro->rating); $i++) {
+                        echo '<i class="fas fa-star rating-bad"></i>';
+                    }
+                    echo '
+                            </div>
+                            <h4>$'.$featurepro->price.'</h4>
+                        </div>
+                        <a role="button" data-bs-toggle="modal" data-bs-target="modal-feature-'.$featurepro->id.'"><i class="fal fa-shopping-cart cart"></i></a>
+                    </div>';
+                }
+            }
+            ?>
 
         </div>
     </section>
@@ -138,7 +100,37 @@
     <section id="products1" class="section-p1">
         <h2>New Products</h2>
         <div class="pro-container">
-            <div class="pro">
+            <?php 
+            if (count($newpros) == 0) {
+                echo '<div class="pro"><i class="nav-icon fa fa-luggage-cart"></i><p>It sure is empty here.</p></div>';
+                echo '<div class="pro"><i class="nav-icon fa fa-luggage-cart"></i><p>It sure is empty here.</p></div>';
+                echo '<div class="pro"><i class="nav-icon fa fa-luggage-cart"></i><p>It sure is empty here.</p></div>';
+            } else {
+                foreach ($newpro as $newpros) {
+                    echo '
+                    <div class="pro">
+                        <img src="'.$newpro->default_img.'" alt="">
+                        <div class="des">
+                            <span>brand</span>
+                            <h5>'.$newpro->name.'</h5>
+                            <div class="star">
+                    ';
+                    for ($i = 0; $i < floor($newpro->rating); $i++) {
+                        echo '<i class="fas fa-star"></i>';
+                    }
+                    for ($i = 0; $i < 5 - floor($newpro->rating); $i++) {
+                        echo '<i class="fas fa-star rating-bad"></i>';
+                    }
+                    echo '
+                            </div>
+                            <h4>$'.$newpro->price.'</h4>
+                        </div>
+                        <a role="button" data-bs-toggle="modal" data-bs-target="modal-newpro-'.$newpro->id.'"><i class="fal fa-shopping-cart cart"></i></a>
+                    </div>';
+                }
+            }
+            ?>
+            <!-- <div class="pro">
                 <img src="public/img/products/f1.jpg" alt="">
                 <div class="des">
                     <span>brand</span>
@@ -148,12 +140,12 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star rating-bad"></i>
                     </div>
                     <h4>$price</h4>
                 </div>
-                <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
-            </div>
+                <a><i class="fal fa-shopping-cart cart"></i></a>
+            </div> -->
 
         </div>
     </section>
