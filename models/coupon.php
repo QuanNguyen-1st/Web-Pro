@@ -48,7 +48,7 @@ class Coupon {
 
     static function delete($id) {
         $db = DB::getInstance();
-        $req = $db->query("DELETE FROM coupon WHERE id = '$id';");
+        $req = $db->query("DELETE FROM coupon WHERE id = $id;");
         return $req;
     }
     

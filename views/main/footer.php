@@ -10,7 +10,7 @@
         </section>
 
         <footer class="section-p1">
-            <div class="col">
+            <div class="footer-col">
                 <img class="logo" src="public/img/logo.png" alt="">
                 <h4>Contact</h4>
                 <p><strong>Address: 268 Ly Thuong Kiet, Ward 14, District 10, Ho Chi Minh City</strong></p>
@@ -27,7 +27,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col">
+            <div class="footer-col">
                 <h4>About</h4>
                 <a href="#">About Us</a>
                 <a href="#">Delivery Information</a>
@@ -35,7 +35,7 @@
                 <a href="#">Terms & Conditions</a>
                 <a href="#">Contact Us</a>
             </div>
-            <div class="col">
+            <div class="footer-col">
                 <h4>My Account</h4>
                 <a href="#">Sign In</a>
                 <a href="#">View Cart</a>
@@ -43,10 +43,10 @@
                 <a href="#">Track My Order</a>
                 <a href="#">Help</a>
             </div>
-            <div class="col app">
+            <div class="footer-col app">
                 <h4>Install App</h4>
                 <p>From App Store or Google Play</p>
-                <div class="row">
+                <div class="footer-row">
                     <img src="public/img/pay/app.jpg" alt="">
                     <img src="public/img/pay/play.jpg" alt="">
                 </div>

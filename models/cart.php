@@ -25,7 +25,7 @@ class Cart {
         $db = DB::getInstance();
         $req = $db->query(
             "SELECT * FROM cart;"
-        )
+        );
         return $req;
     }
 
@@ -33,26 +33,26 @@ class Cart {
         $db = DB::getInstance();
         $req = $db->query("
             INSERT INTO cart (user_id, product_id, size, amount, purchase, coupon_id, datePurchase)
-            VALUES ('$user_id', '$product_id', $size, $amount, 0, '', '');
+            VALUES ($user_id, $product_id, $size, $amount, 0, NULL, NULL);
         ");
         return $req;
     }
 
     static function delete($id) {
         $db = DB::getInstance();
-        $req = $db->query("DELETE FROM cart WHERE id = '$id';");
+        $req = $db->query("DELETE FROM cart WHERE id = $id;");
         return $req;
     }
 
     static function update($id, $amount) {
         $db = DB::getInstance();
-        $req = $db->query("UPDATE cart SET amount = $amount WHERE id = '$id';");
+        $req = $db->query("UPDATE cart SET amount = $amount WHERE id = $id;");
         return $req;
     }
 
     static function makePurchase($id, $coupon_id) {
         $db = DB::getInstance();
-        $req = $db->query("UPDATE cart SET coupon_id = '$coupon_id', purchase = 1, datePurchase = NOW() WHERE id = '$id';");
+        $req = $db->query("UPDATE cart SET coupon_id = $coupon_id, purchase = 1, datePurchase = NOW() WHERE id = $id;");
         return $req;
     }
 

@@ -17,7 +17,7 @@ class Stock {
     static function check($product_id, $size, $img) {
         $db = DB::getInstance();
         $req = $db->query("
-            SELECT 1 FROM stock WHERE product_id = '$product_id' AND size = $size AND img = '$img';
+            SELECT 1 FROM stock WHERE product_id = $product_id AND size = $size AND img = '$img';
         ");
         if ($req->num_rows === 0) {
             return true;
@@ -30,7 +30,7 @@ class Stock {
             $db = DB::getInstance();
             $req = $db->query("
                 INSERT INTO stock (product_id, size, stock, img)
-                VALUES ('$product_id', $size, $stock, '$img');
+                VALUES ($product_id, $size, $stock, '$img');
             ");
             return $req;
         } else {
@@ -44,7 +44,7 @@ class Stock {
         } else {
             $db = DB::getInstance();
             $req = $db->query("
-                UPDATE stock SET stock = $stock WHERE product_id = '$product_id' AND size = $size;
+                UPDATE stock SET stock = $stock WHERE product_id = $product_id AND size = $size;
             ");
             return $req;
         }

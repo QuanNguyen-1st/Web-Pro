@@ -40,14 +40,14 @@ class Feature {
 
     static function delete($id) {
         $db = DB::getInstance();
-        $req = $db->query("DELETE FROM feature WHERE id = '$id';");
+        $req = $db->query("DELETE FROM feature WHERE id = $id;");
         return $req;
     }
 
     static function update($id, $title) {
         $db = DB::getInstance();
         $req = $db->query("
-            UPDATE feature SET title = '$title' WHERE id = '$id';
+            UPDATE feature SET title = '$title' WHERE id = $id;
         ");
         return $req;
     }

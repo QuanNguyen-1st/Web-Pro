@@ -179,11 +179,123 @@
             <h3>Not so long des</h3>
         </div>
     </section>
+
+    <?php 
+    if (count($newpros) == 0) {
+
+    } else {
+        foreach ($newpros as $pro) {
+            echo '
+            <div class="modal fade modal-product" id="modal-newpro-'.$pro->id.'" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modal-'.$pro->id.'Label" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <!-- <h1 class="modal-title fs-5" id="modal-'.$pro->id.'Label">Modal title</h1> -->
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <section class="pro-detail">
+                                <div class="img-container">
+                                    <img src="'.$pro->default_img.'" width="100%" id="big-img" alt="">
+                                    <div class="small-img-group">
+            ';
+            foreach ($pro->stocks as $stock) {
+                echo'
+                                        <div class="small-img-container">
+                                            <img src="'.$stock->img.'" width="100%" class="small-img" alt="">
+                                        </div>
+                ';
+            }
+            echo'
+                                    </div>
+                                </div>
+                                <div class="detail-container">
+                                    <h4>'.$pro->name.'</h4>
+                                    <h2>$'.$pro->price.'</h2>
+                                    <form>
+                                        <select name="size">
+                                            <option>Select Size</option>
+                                            <option value="1">Small</option>
+                                            <option value="2">Large</option>
+                                            <option value="3">XL</option>
+                                            <option value="4">XXL</option>
+                                        </select>
+                                        <input type="number" value="1">
+                                        <button class="normal add-new-cart" data-product="'.$pro->id.'">Add To Cart</button>
+                                    </form>
+                                    <h4>Product Details</h4>
+                                    <p>'.$pro->description.'</p>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            ';
+        }
+    }
+
+    if (count($featurepros) == 0) {
+
+    } else {
+        foreach ($featurepros as $pro) {
+            echo '
+            <div class="modal fade modal-product" id="modal-feature-'.$pro->id.'" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modal-'.$pro->id.'Label" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <!-- <h1 class="modal-title fs-5" id="modal-'.$pro->id.'Label">Modal title</h1> -->
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <section class="pro-detail">
+                                <div class="img-container">
+                                    <img src="'.$pro->default_img.'" width="100%" id="big-img" alt="">
+                                    <div class="small-img-group">
+            ';
+            foreach ($pro->stocks as $stock) {
+                echo'
+                                        <div class="small-img-container">
+                                            <img src="'.$stock->img.'" width="100%" class="small-img" alt="">
+                                        </div>
+                ';
+            }
+            echo'
+                                    </div>
+                                </div>
+                                <div class="detail-container">
+                                    <h4>'.$pro->name.'</h4>
+                                    <h2>$'.$pro->price.'</h2>
+                                    <form>
+                                        <select name="size">
+                                            <option>Select Size</option>
+                                            <option value="1">Small</option>
+                                            <option value="2">Large</option>
+                                            <option value="3">XL</option>
+                                            <option value="4">XXL</option>
+                                        </select>
+                                        <input type="number" value="1">
+                                        <button class="normal add-fea-cart" data-product="'.$pro->id.'">Add To Cart</button>
+                                    </form>
+                                    <h4>Product Details</h4>
+                                    <p>'.$pro->description.'</p>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            ';
+        }
+    }
+    
+    ?>
 <script>
     $('#shop-now-btn').click(function(e) {
         location.href = "index.php?page=main&controller=shop&action=index";
     })
 </script>
+<script src="public/js/layouts/script.js"></script>
 <?php
     include_once('views/main/footer.php');
 ?>

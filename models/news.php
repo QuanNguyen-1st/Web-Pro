@@ -35,7 +35,7 @@ class News
                 $news['title'],
                 $news['description'],
                 $news['content'],
-                $news['img']
+                @$news['img']
             );
         }
         return $lnews;
@@ -55,7 +55,7 @@ class News
                 $news['title'],
                 $news['description'],
                 $news['content'],
-                $news['img']
+                @$news['img']
             );
         }
         return $lnews;
@@ -73,7 +73,7 @@ class News
             $result['title'],
             $result['description'],
             $result['content'],
-            $news['img']
+            @$news['img']
         );
         return $news;
     }
@@ -139,7 +139,7 @@ class News
                 $news['title'],
                 $news['description'],
                 $news['content'],
-                $news['img']
+                @$news['img']
             );
         }
         return $lnews;

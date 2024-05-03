@@ -68,7 +68,7 @@
         } 
         
         for ($i = 1; $i <= $totalPages; $i++) {
-            echo '<a class="'.($i == $currentPage ? 'active' : '').'" href="index.php?page=main&controller=shop&action=index&pg='.$i.'> '.$i.' </a>'; 
+            echo '<a class="'.($i == $currentPage ? 'active' : '').'" href="index.php?page=main&controller=shop&action=index&pg='.$i.'"> '.$i.' </a>'; 
         }
         
         if ($currentPage < $totalPages) {
@@ -79,6 +79,63 @@
         <a href="#">2</a>
         <a href="#"><i class="fal fa-long-arrow-alt-right"></i></a> -->
     </section>
+
+    <?php 
+    if (count($products) == 0) {
+
+    } else {
+        foreach ($products as $pro) {
+            echo '
+            <div class="modal fade modal-product" id="modal-'.$pro->id.'" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modal-'.$pro->id.'Label" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <!-- <h1 class="modal-title fs-5" id="modal-'.$pro->id.'Label">Modal title</h1> -->
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <section class="pro-detail">
+                                <div class="img-container">
+                                    <img src="'.$pro->default_img.'" width="100%" class="big-img" alt="">
+                                    <div class="small-img-group">
+            ';
+            foreach ($pro->stocks as $stock) {
+                echo'
+                                        <div class="small-img-container">
+                                            <img src="'.$stock->img.'" width="100%" class="small-img" alt="">
+                                        </div>
+                ';
+            }
+            echo'
+                                    </div>
+                                </div>
+                                <div class="detail-container">
+                                    <h4>'.$pro->name.'</h4>
+                                    <h2>$'.$pro->price.'</h2>
+                                    <form>
+                                        <select name="size">
+                                            <option>Select Size</option>
+                                            <option value="1">Small</option>
+                                            <option value="2">Large</option>
+                                            <option value="3">XL</option>
+                                            <option value="4">XXL</option>
+                                        </select>
+                                        <input name="amount" type="number" value="1" min="1">
+                                        <button class="normal add-to-cart" data-product="'.$pro->id.'">Add To Cart</button>
+                                    </form>
+                                    <h4>Product Details</h4>
+                                    <p>'.$pro->description.'</p>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            ';
+        }
+    }
+    
+    ?>
 
 <?php
     include_once('views/main/footer.php');

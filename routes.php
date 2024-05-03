@@ -2,16 +2,16 @@
 $pages = array(
   'error' => ['errors'],
   'main' => ['layouts', 'shop', 'cart', 'blog', 'about', 'contact', 'login', 'register'],
-  'admin' => ['layouts', 'members', 'products', 'news', 'comments']
+  'admin' => ['layouts', 'members', 'products', 'news', 'comments'. 'stocks', 'features', 'carts', 'admin', 'user']
 );
 
 $controllers_main = array(
   //Main controller
   'about' => ['index'],
-  'shop' => ['index', 'add'],
-  'contact' => ['index'],
+  'shop' => ['index'],
+  'contact' => ['index', 'submit'],
   'blog' => ['index', 'comment', 'reply'],
-  'cart' => ['index', 'coupon', 'purchase'],
+  'cart' => ['index', 'add', 'purchase', 'delete'],
   'register' => ['index', 'submit', 'editInfo']
 
 );
@@ -49,9 +49,9 @@ $controllers = array(
   //Main controller
   'about' => ['index'],
   'shop' => ['index'],
-  'contact' => ['index'],
+  'contact' => ['index', 'submit'],
   'blog' => ['index', 'comment', 'reply'],
-  'cart' => ['index', 'add', 'coupon', 'purchase'],
+  'cart' => ['index', 'add', 'purchase', 'delete'],
   'register' => ['index', 'submit', 'editInfo']
 );
 

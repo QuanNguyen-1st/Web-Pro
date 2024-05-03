@@ -485,7 +485,7 @@ footer {
     justify-content: space-between;
 }
 
-footer .col {
+footer .footer-col {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -523,7 +523,7 @@ footer .social i {
     cursor: pointer;
 }
 
-footer .app .row img {
+footer .app .footer-row img {
     border: 1px solid var(--main-color);
     border-radius: 6px;
 }

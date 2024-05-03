@@ -31,22 +31,25 @@
             </thead>
             <tbody>
                 <?php 
-                // for ($i = 0; $i < count($products); $i++) {
-                //     echo '
-                //     <tr class="cart-item">
-                //         <td><a role="button" data-bs-pro="'.$cart[$i]->id.'" data-bs-toggle="modal" data-bs-target="#deleteProductConfirm"><i class="far fa-times-circle"></i></a></td>
-                //         <td><img src="'.$cart[$i]->img.'" alt=""></td>
-                //         <td>'.$product->name.'</td>
-                //         <td>$<span class="unit-price">'.$product->price.'</span></td>
-                //         <td><input type="number" value="1" min="1" required></td>
-                //         <td>$<span class="subtotal-price"></span></td>
-                //     </tr>
-                //     ';
-                // }
-                
+                if (count($products) == 0) {
+
+                } else {
+                    for ($i = 0; $i < count($products); $i++) {
+                        echo '
+                        <tr class="cart-item">
+                            <td><a role="button" data-bs-pro="'.$cart[$i]->id.'" data-bs-toggle="modal" data-bs-target="#deleteProductConfirm"><i class="far fa-times-circle"></i></a></td>
+                            <td><img src="'.$cart[$i]->img.'" alt=""></td>
+                            <td>'.$product->name.'</td>
+                            <td>$<span class="unit-price">'.$product->price.'</span></td>
+                            <td><input type="number" value="1" min="1" required></td>
+                            <td>$<span class="subtotal-price"></span></td>
+                        </tr>
+                        ';
+                    }
+                }
                 ?>
                 <!-- <tr class="cart-item">
-                    <td><a href="#"><i class="far fa-times-circle"></i></a></td>
+                <td><a role="button" data-bs-pro="134" data-bs-toggle="modal" data-bs-target="#deleteProductConfirm"><i class="far fa-times-circle"></i></a></td>
                     <td><img src="public/img/products/f1.jpg" alt=""></td>
                     <td>Name name name</td>
                     <td>$<span class="unit-price">123</span></td>
@@ -65,8 +68,26 @@
         </table>
     </section>
 
+    <div class="modal fade" id="deleteProductConfirm" tabindex="-1" aria-labelledby="deleteProductConfirmLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="deleteProductConfirmLabel">Are you sure?</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <form id="delete-form" method="POST" action="index.php?page=main&controller=cart&action=delete">
+                <input id="del-cart-holder" name="cart_id" value="" type="hidden">
+                <button type="submit" class="btn" id="#deleteConfirm" style="background-color:#088178;color:#fff;">Confirm</button>
+                </form>
+            </div>
+            </div>
+        </div>
+    </div>
+
     <section id="cart-total" class="section-p1">
-        <form id="coupon">
+        <form id="coupon" action="index.php?page=main&controller=cart&action=index" method="POST">
             <h3>Apply Coupon</h3>
             <div>
                 <input type="text" name="coupon" placeholder="Enter Your Coupon">
@@ -102,6 +123,8 @@
             <button class="normal">Proceed to checkout</button>
         </form>
     </section>
+
+<script src="public/js/cart/script.js"></script>
 
 <?php
     include_once('views/main/footer.php');

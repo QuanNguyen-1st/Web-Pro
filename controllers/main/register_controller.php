@@ -64,6 +64,7 @@ class RegisterController extends BaseController
 		$birthday = $_POST['birthday'];
 		$phone = $_POST['phone'];
 		$urlcurrent = $_POST['img'];
+		if ($urlcurrent == '') $urlcurrent="public/img/user/default.png"
 		// Photo
 		$target_dir = "public/img/user/";
 		$path = $_FILES['fileToUpload']['name'];
