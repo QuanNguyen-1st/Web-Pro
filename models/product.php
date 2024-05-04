@@ -72,9 +72,6 @@ class Product {
         $req = $db->query(
             "SELECT * FROM product WHERE feature_id = $feature_id"
         );
-        if ($req->num_rows === 0) {
-            return []; // or handle accordingly based on your logic
-        }
         $products = [];
         foreach ($req->fetch_all(MYSQLI_ASSOC) as $product)
         {
@@ -97,9 +94,6 @@ class Product {
         $req = $db->query(
             "SELECT * FROM product ORDER BY date DESC LIMIT 10;"
         );
-        if ($req->num_rows === 0) {
-            return []; // or handle accordingly based on your logic
-        }
         $products = [];
         foreach ($req->fetch_all(MYSQLI_ASSOC) as $product)
         {
@@ -129,9 +123,6 @@ class Product {
             ON product.id = C.product_id
             WHERE C.purchase = 0 AND C.user_id = '$user_id';
         ");
-        if ($req->num_rows === 0) {
-            return [[]]; // or handle accordingly based on your logic
-        }
         $products = [];
         $cart = [];
         foreach ($req->fetch_all(MYSQLI_ASSOC) as $product) {
