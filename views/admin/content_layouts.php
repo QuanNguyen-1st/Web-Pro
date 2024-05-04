@@ -99,6 +99,12 @@
 										<p>Quản lý Feature</p>
 									</a>
 								</li>
+								<li class="nav-item">	
+									<a class="nav-link <?php echo $activeArr['couponActive']; ?>" href="index.php?page=admin&controller=coupons&action=index">
+										<i class="far fa-circle nav-icon"></i>
+										<p>Quản lý coupons</p>
+									</a>
+								</li>
 							</ul>
 						</li>
 						

@@ -2,7 +2,7 @@
 $pages = array(
   'error' => ['errors'],
   'main' => ['layouts', 'shop', 'cart', 'blog', 'about', 'contact', 'login', 'register'],
-  'admin' => ['layouts', 'members', 'products', 'news', 'comments'. 'stocks', 'features', 'carts', 'admin', 'user']
+  'admin' => ['layouts', 'members', 'products', 'news', 'comments'. 'stocks', 'features', 'coupons', 'carts', 'admin', 'user']
 );
 
 $controllers_main = array(
@@ -25,6 +25,7 @@ $controllers_admin = array(
     'features' => ['index','add','edit','delete'],
     'carts' => ['index','add','edit','delete'],
     'news' => ['index','add','edit','delete','hide'],
+    'coupons' => ['index','add','edit','delete'],
     'comments' => ['index','hide','add','edit','delete'],
     'admin' => ['index', 'add', 'edit', 'delete'],
     'user' => ['index', 'add', 'editInfo', 'editPass', 'delete'],
@@ -42,6 +43,7 @@ $controllers = array(
   'features' => ['index','add','edit','delete'],
   'carts' => ['index','add','edit','delete'],
   'news' => ['index','add','edit','delete','hide'],
+  'coupons' => ['index','add','edit','delete'],
   'comments' => ['index','hide','add','edit','delete'],
   'admin' => ['index', 'add', 'edit', 'delete'],
   'user' => ['index', 'add', 'editInfo', 'editPass', 'delete'],

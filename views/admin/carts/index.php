@@ -39,7 +39,15 @@ require_once('views/admin/content_layouts.php'); ?>
 							<table id="#" class="table table-bordered table-striped" style="margin-top:6px;">
 								<thead>
 									<tr class="text-center">
-										<th></th>
+										<th scope="col">STT</th>
+										<th scope="col">ID Người dùng</th>
+										<th scope="col">ID Sản phẩm</th>
+										<th scope="col">Kích cỡ</th>
+										<th scope="col">Số lượng</th>
+										<th scope="col">Tình trạng</th>
+										<th scope="col">Ngày mua</th>
+										<th scope="col">Coupon</th>
+										<th scope="col">Thao tác</th>
 									</tr>
 								</thead>
 								<tbody>

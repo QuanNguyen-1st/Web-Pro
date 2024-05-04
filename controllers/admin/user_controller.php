@@ -3,7 +3,7 @@ require_once('controllers/admin/base_controller.php');
 require_once('models/user.php');
 class UserController extends BaseController
 {
-	public $activeArr = array('homeActive' => '', 'adminActive' => '', 'commentActive' => '', 'userActive' => 'active', 'productActive' => '', 'stockActive' => '', 'featureActive' => '', 'cartActive' => '', 'newsActive' => '');
+	public $activeArr = array('homeActive' => '', 'adminActive' => '', 'commentActive' => '', 'userActive' => 'active', 'productActive' => '', 'stockActive' => '', 'featureActive' => '', 'cartActive' => '', 'newsActive' => '', 'couponActive' => '');
 	function __construct()
 	{
 		$this->folder = 'user';

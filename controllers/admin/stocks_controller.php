@@ -2,7 +2,7 @@
 require_once('controllers/admin/base_controller.php');
 class StocksController extends BaseController
 {
-	public $activeArr = array('homeActive' => '', 'adminActive' => '', 'commentActive' => '', 'userActive' => '', 'productActive' => '', 'stockActive' => 'active', 'featureActive' => '', 'cartActive' => '', 'newsActive' => '');
+	public $activeArr = array('homeActive' => '', 'adminActive' => '', 'commentActive' => '', 'userActive' => '', 'productActive' => '', 'stockActive' => 'active', 'featureActive' => '', 'cartActive' => '', 'newsActive' => '', 'couponActive' => '');
 	function __construct()
 	{
 		$this->folder = 'stocks';

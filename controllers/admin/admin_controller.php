@@ -3,7 +3,7 @@ require_once('controllers/admin/base_controller.php');
 require_once('models/admin.php');
 class AdminController extends BaseController
 {
-	public $activeArr = array('homeActive' => '', 'adminActive' => 'active', 'commentActive' => '', 'userActive' => '', 'productActive' => '', 'stockActive' => '', 'featureActive' => '', 'cartActive' => '', 'newsActive' => '');
+	public $activeArr = array('homeActive' => '', 'adminActive' => 'active', 'commentActive' => '', 'userActive' => '', 'productActive' => '', 'stockActive' => '', 'featureActive' => '', 'cartActive' => '', 'newsActive' => '', 'couponActive' => 'active');
 	function __construct()
 	{
 		$this->folder = 'admin';

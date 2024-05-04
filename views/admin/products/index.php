@@ -40,7 +40,15 @@ require_once('views/admin/content_layouts.php'); ?>
 							<table id="#" class="table table-bordered table-striped" style="margin-top:6px;">
 								<thead>
 									<tr class="text-center">
-										<th></th>
+										<th scope="col">STT</th>
+										<th scope="col">Tên</th>
+										<th scope="col">Mô tả</th>
+										<th scope="col">Giá tiền</th>
+										<th scope="col">Đánh giá</th>
+										<th scope="col">Ngày thêm</th>
+										<th scope="col">Nổi bật</th>
+										<th scope="col">Hình ảnh</th>
+										<th scope="col">Thao tác</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -68,6 +76,6 @@ require_once('views/admin/content_layouts.php'); ?>
 <?php
 require_once('views/admin/footer.php'); ?>
 
-<script src="public/js/admin/admin/script.js"></script>
+<script src="public/js/admin/product/script.js"></script>
 </body>
 </html>

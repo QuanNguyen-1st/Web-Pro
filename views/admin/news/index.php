@@ -45,6 +45,7 @@ require_once('views/admin/content_layouts.php'); ?>
                                         <th scope="col">Tiêu đề</th>
                                         <th scope="col">Mô tả</th>
                                         <th scope="col">Nội dung</th>
+										<th scope="col">Hình ảnh</th>
                                         <th style="width:150px;" scope="col">Trạng thái</th>
                                         <th style="width:150px;" scope="col">Thao tác</th>
                                     </tr>
@@ -80,6 +81,9 @@ require_once('views/admin/content_layouts.php'); ?>
 													</td> 
 													<td>
 													" . $new->content . "
+													</td>   
+													<td style=\"width:150px;\">
+													" . ($new->img ? "<img src=".$new->img." alt=\"\" style=\"width:100%;\">" : "Không có") . "
 													</td>   
 													
 													<td class=\"text-center\">

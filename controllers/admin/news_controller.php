@@ -3,7 +3,7 @@ require_once('controllers/admin/base_controller.php');
 require_once('models/news.php');
 class NewsController extends BaseController
 {
-	public $activeArr = array('homeActive' => '', 'adminActive' => '', 'commentActive' => '', 'userActive' => '', 'productActive' => '', 'stockActive' => '', 'featureActive' => '', 'cartActive' => '', 'newsActive' => 'active');
+	public $activeArr = array('homeActive' => '', 'adminActive' => '', 'commentActive' => '', 'userActive' => '', 'productActive' => '', 'stockActive' => '', 'featureActive' => '', 'cartActive' => '', 'newsActive' => 'active', 'couponActive' => '');
 	function __construct()
 	{
 		$this->folder = 'news';

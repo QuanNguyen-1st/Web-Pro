@@ -18,13 +18,12 @@ require_once('views/admin/content_layouts.php'); ?>
 		<div class="container-fluid">
 			<div class="row mb-2">
 				<div class="col-sm-6">
-					<h1>Quản lý Feature</h1>
+					<h1>Quản lý Giỏ hàng</h1>
 				</div>
 				<div class="col-sm-6">
 					<ol class="breadcrumb float-sm-right">
 						<li class="breadcrumb-item"><a href="index.php?page=admin&controller=layouts&action=index">Home</a></li>
-						<li class="breadcrumb-item"><a href="index.php?page=admin&controller=products&action=index">Quản lý sản phẩm</a></li>
-						<li class="breadcrumb-item active">Feature</li>
+						<li class="breadcrumb-item active">Quản lý Giỏ hàng</li>
 					</ol>
 				</div>
 			</div>
@@ -41,8 +40,11 @@ require_once('views/admin/content_layouts.php'); ?>
 								<thead>
 									<tr class="text-center">
 										<th scope="col">STT</th>
-										<th scope="col">Tiêu đề</th>
+										<th scope="col">Số lượng</th>
+										<th scope="col">Mã</th>
+										<th scope="col">Giảm giá</th>
 										<th scope="col">Ngày tạo</th>
+										<th scope="col">Ngạy hết hạn</th>
 										<th scope="col">Thao tác</th>
 									</tr>
 								</thead>
@@ -65,12 +67,11 @@ require_once('views/admin/content_layouts.php'); ?>
 	</section>
 </div>
 
-
 <!-- Add Javascripts -->
 
 <?php
 require_once('views/admin/footer.php'); ?>
 
-<script src="public/js/admin/feature/script.js"></script>
+<script src="public/js/admin/coupon/script.js"></script>
 </body>
 </html>

@@ -40,14 +40,15 @@ require_once('views/admin/content_layouts.php'); ?>
 							<table id="tab-user" class="table table-bordered table-striped" style="margin-top:6px;">
 								<thead>
 									<tr class="text-center">
-										<th>STT</th>
-										<th>Họ và tên lót</th>
-										<th>Tên</th>
-										<th>Giới tính</th>
-										<th>Năm sinh</th>
-										<th>Số điện thoại</th>
-										<th>Email</th>
-										<th>Thao tác</th>
+										<th scope="col">STT</th>
+										<th scope="col">Họ và tên lót</th>
+										<th scope="col">Tên</th>
+										<th scope="col">Giới tính</th>
+										<th scope="col">Năm sinh</th>
+										<th scope="col">Số điện thoại</th>
+										<th scope="col">Email</th>
+										<th scope="col">Hình ảnh</th>
+										<th scope="col">Thao tác</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -62,6 +63,7 @@ require_once('views/admin/content_layouts.php'); ?>
 											echo "<td>" . $user->birthday . "</td>";
 											echo "<td>" . $user->phone . "</td>";
 											echo "<td>" . $user->email . "</td>";
+											echo "<td style=\"width:100px;\">". ($user->profile_photo ? "<img src=".$user->profile_photo." alt=\"\" style=\"width:100%;\">" : "Không có") ."</td>";
 											echo "<td>
 												<btn data-bs-toggle='tooltip' data-bs-placement='top' title='Chỉnh sửa' class='btn-edit btn btn-primary btn-xs' style='margin-right: 5px' data-bs-email='$user->email' data-bs-fname='$user->fname' data-bs-lname='$user->lname' data-bs-gender='$user->gender' data-bs-birthday='$user->birthday' data-bs-phone='$user->phone' data-bs-img='$user->profile_photo'> <i class='fas fa-edit'></i></btn>
 												<btn data-bs-toggle='tooltip' data-bs-placement='top' title='Đổi mật khẩu' class='btn-changepass btn btn-warning btn-xs' style='margin-right: 5px' data-bs-email='$user->email'> <i class='fas fa-lock'></i></btn>
