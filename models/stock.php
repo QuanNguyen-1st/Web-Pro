@@ -21,9 +21,9 @@ class Stock {
             SELECT 1 FROM stock WHERE product_id = $product_id AND size = $size AND img = '$img' AND stock_num >= $amount;
         ");
         if ($req->num_rows === 0) {
-            return true;
+            return false;
         }
-        return false;
+        return true;
     }
 
     static function getAlt($product_id) {
@@ -54,13 +54,13 @@ class Stock {
             SELECT 1 FROM stock WHERE product_id = $product_id AND size = $size AND img = '$img';
         ");
         if ($req->num_rows === 0) {
-            return true;
+            return false;
         }
-        return false;
+        return true;
     }
 
     static function insert($product_id, $size,  $img, $stock_num) {
-        if (Stock::check($product_id, $size, $img)) {
+        if (!Stock::check($product_id, $size, $img)) {
             $db = DB::getInstance();
             $req = $db->query("
                 INSERT INTO stock (product_id, size, stock_num, img)
@@ -73,7 +73,7 @@ class Stock {
     }
 
     static function update($product_id, $size, $img, $stock_num) {
-        if (Stock::check($product_id, $size, $img)) {
+        if (!Stock::check($product_id, $size, $img)) {
             return null;
         } else {
             $db = DB::getInstance();
@@ -85,7 +85,7 @@ class Stock {
     }
 
     static function makePurchase($product_id, $size, $img, $amount) {
-        if (Stock::check($product_id, $size, $img)) {
+        if (!Stock::check($product_id, $size, $img)) {
             return null;
         } else {
             $db = DB::getInstance();

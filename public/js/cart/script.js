@@ -67,8 +67,11 @@ $('#make-purchase').on('click', (e) => {
             if (response == 'success') {
                 
             }
-            else {
+            else if (response == 'Not enough stocks') {
                 alert('Not enough stocks');
+            }
+            else {
+                alert(response);
             }
         }
     })
