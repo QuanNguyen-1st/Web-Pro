@@ -26,3 +26,17 @@ $('.add-to-cart').on('click', (e) => {
         }
     })
 });
+
+$('.modal-product').on('show.bs.modal', (e) => {
+    let mainImg = $(this).find('.big-img');
+
+    $(this).find('.small-img').each((idx, item) => {
+        $(item).click((e) => {
+            mainImg.attr('src', item.src);
+        })
+    });
+
+    // $(this).find('.small-img').click((e) => {
+    //     mainImg.attr('src', $(this).attr('src'));
+    // })
+})

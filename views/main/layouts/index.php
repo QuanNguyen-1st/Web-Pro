@@ -196,7 +196,7 @@
                         <div class="modal-body">
                             <section class="pro-detail">
                                 <div class="img-container">
-                                    <img src="'.$pro->default_img.'" width="100%" id="big-img" alt="">
+                                    <img src="'.$pro->default_img.'" width="100%" class="big-img" alt="">
                                     <div class="small-img-group">
             ';
             foreach ($pro->stocks as $stock) {
@@ -250,7 +250,7 @@
                         <div class="modal-body">
                             <section class="pro-detail">
                                 <div class="img-container">
-                                    <img src="'.$pro->default_img.'" width="100%" id="big-img" alt="">
+                                    <img src="'.$pro->default_img.'" width="100%" class="big-img" alt="">
                                     <div class="small-img-group">
             ';
             foreach ($pro->stocks as $stock) {

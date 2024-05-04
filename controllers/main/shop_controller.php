@@ -1,7 +1,7 @@
 <?php
 require_once('controllers/main/base_controller.php');
 require_once('models/product.php');
-require_once('models/cart.php');
+require_once('models/stock.php');
 class ShopController extends BaseController
 {
 	public $activeArr = array('homeActive' => '', 'shopActive' => 'active', 'blogActive' => '', 'aboutActive' => '', 'contactActive' => '', 'cartActive' => '');
@@ -18,6 +18,10 @@ class ShopController extends BaseController
 		$products = [];
 
 		$products = Product::getAll();
+		foreach ($products as $pro) {
+			$stocks = Stock::getAlt($pro->id);
+			$pro->stocks = $stocks;
+		}
 
 		$totalPages = ceil(count($products) / $itemsPerPage);
 		$startIndex = ($currentPage - 1) * $itemsPerPage;
