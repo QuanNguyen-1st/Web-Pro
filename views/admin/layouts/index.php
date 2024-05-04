@@ -17,47 +17,77 @@ require_once('views/admin/content_layouts.php'); ?>
 	<section class="content-header">
 		<div class="container-fluid">
 			<div class="row mb-2">
-				<div class="col-sm-6">
-					<h1>Name</h1>
-				</div>
-				<div class="col-sm-6">
-					<ol class="breadcrumb float-sm-right">
-						<li class="breadcrumb-item"><a href="page=admin&controller=layouts&action=index">Home</a></li>
-						<li class="breadcrumb-item active">Name</li>
-					</ol>
+				<div class="col-sm-12">
+					<h1>Chào mừng đến với khu vực của quản trị viên</h1>
 				</div>
 			</div>
 		</div>
-	<section>
+	</section>
 	<section class="content">
 		<div class="container-fluid">
-			<div class="row">
-				<div class="col-12">
-					<div class="card">
-						<div class="card-body">
-							<!-- Table Here -->
-							<table id="#" class="table table-bordered table-striped" style="margin-top:6px;">
-								<thead>
-									<tr class="text-center">
-										<th></th>
-									</tr>
-								</thead>
-								<tbody>
-
-								</tbody>
-								<tfoot>
-									<tr class="text-center">
-										<th></th>
-									</tr>
-								</tfoot>
-							</table>
-							<!-- Or Modal Here -->
-
-						</div>
+			<div class="invoice p-3 mb-3">
+				<div class="row invoice-info">
+					<div class="col-sm-6 invoice-col">
+						<ul style="list-style: none;" >
+							<?php
+								if($_SESSION['role'] == 1){
+									echo '
+									<li class="mt-2">
+										<a href="index.php?page=admin&controller=admin&action=index">
+											<i class="fas fa-user-graduate"></i>
+											Danh sách Admin
+										</a>
+									</li>
+									
+									';
+								}
+							?>
+							
+							<li class="mt-2">
+								<a href="index.php?page=admin&controller=comments&action=index">
+									<i class="fas fa-comments"></i>
+									Bình luận - Đánh giá
+								</a>
+							</li>
+							<li class="mt-2">
+								<a href="index.php?page=admin&controller=user&action=index"> 
+									<i class="fas fa-users-cog"></i>
+									Liên hệ khách hàng
+								</a>
+							</li>
+						</ul>
 					</div>
+					<!-- /.col -->
+					<div class="col-sm-6 invoice-col">
+						<ul style="list-style: none;">
+							<li class="mt-2">
+								<a href="index.php?page=admin&controller=products&action=index">
+									<i class="fas fa-cube"></i>
+									Quản lý Sản phẩm
+								</a>
+							</li>
+							
+							<li class="mt-2">
+								<a href="index.php?page=admin&controller=cart&action=index"> 
+									<i class="fas fa-newspaper"></i>
+									Quản lý giỏ hàng
+								</a>
+							</li>
+							<li class="mt-2">
+								<a href="index.php?page=admin&controller=news&action=index">
+									<i class="fas fa-luggage-cart"></i>
+									Quản lý tin tức
+								</a>
+							</li>
+							
+						</ul>
+					</div>
+					<!-- /.col -->
 				</div>
+				<!-- /.row -->
 			</div>
-		</div>
+			
+		</div><!-- /.container-fluid -->
 	</section>
 </div>
 

@@ -6,7 +6,7 @@
             <ul class="navbar-nav">
 				<li class="nav-item">
 					<a class="nav-link" data-widget="pushmenu" href="#" role="button">
-						<i class="fas fa-bars"></i>
+						C<i class="fas fa-bars"></i>
 					</a>
 				</li>
 				<li class="nav-item d-none d-sm-inline-block">
@@ -17,7 +17,7 @@
 				<!-- Navbar Search-->
 				<li class="nav-item">
 					<a class="nav-link" data-widget="fullscreen" href="#" role="button">
-						<i class="fas fa-expand-arrows-alt"></i>
+						F<i class="fas fa-expand-arrows-alt"></i>
 					</a>
 				</li>
 				<li class="nav-item d-none d-sm-inline-block">
@@ -31,7 +31,7 @@
 			</a>
             <div class="sidebar">
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-					<!-- <?php
+					<?php
 					echo ('
 							<div class="info" style="margin:auto;">
 								<a href="#" class="d-block style="color:#000000;">
@@ -42,17 +42,17 @@
 							</div>
 						');
 
-					?> -->
+					?>
 					
 				</div>
                 <nav class="mt-2">
 					<ul class="nav nav-pills nav-sidebar nav-child-indent flex-column" data-widget="treeview" role="menu" data-accordion="false">
 						<!--Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
-						<!-- <?php
+						<?php
 							if($_SESSION['role']==1){
 								echo '
 									<li class="nav-item">
-										<a class="nav-link ' . $activeArr['commentActive'] . ' " href="index.php?page=admin&controller=admin&action=index">
+										<a class="nav-link ' . $activeArr['adminActive'] . ' " href="index.php?page=admin&controller=admin&action=index">
 											<i class="nav-icon fas fa-user-graduate"> </i>
 											<p>Danh sách Admin</p>
 										</a>
@@ -60,7 +60,7 @@
 								';
 							}
 						
-						?> -->
+						?>
 						<li class="nav-item">
 							<a class="nav-link <?php echo $activeArr['commentActive']; ?>" href="index.php?page=admin&controller=comments&action=index">
 								<i class="nav-icon fas fa-comments"></i>
