@@ -43,9 +43,9 @@ $('#make-purchase').on('click', (e) => {
     let coupon = '';
     
     $('.cart-item').each((idx, item) => {
-        cart_ids.push($(item).find('a').getAttribute('data-bs-pro'));
+        cart_ids.push($(item).find('a').attr('data-bs-pro'));
         amounts.push($(item).find('input').val());
-        if (discount) coupon = discount.getAttribute('coupon-code');
+        if (discount) coupon = discount.attr('coupon-code');
     })
 
     let data = {

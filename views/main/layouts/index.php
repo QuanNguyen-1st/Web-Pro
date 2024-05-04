@@ -66,7 +66,7 @@
                 foreach ($featurepros as $featurepro) {
                     echo '
                     <div class="pro">
-                        <img src="'.$featurepro->default_img.'" alt="">
+                        <img src="'.$featurepro->default_img.'" alt="" onerror="this.onerror=null;this.src=\'public/img/products/f1.jpg\';">
                         <div class="des">
                             <span>brand</span>
                             <h5>'.$featurepro->name.'</h5>
@@ -109,7 +109,7 @@
                 foreach ($newpros as $newpro) {
                     echo '
                     <div class="pro">
-                        <img src="'.$newpro->default_img.'" alt="">
+                        <img src="'.$newpro->default_img.'" alt="" onerror="this.onerror=null;this.src=\'public/img/products/f1.jpg\';">
                         <div class="des">
                             <span>brand</span>
                             <h5>'.$newpro->name.'</h5>
@@ -196,13 +196,13 @@
                         <div class="modal-body">
                             <section class="pro-detail">
                                 <div class="img-container">
-                                    <img src="'.$pro->default_img.'" width="100%" class="big-img" alt="">
+                                    <img src="'.$pro->default_img.'" width="100%" class="big-img" alt="" onerror="this.onerror=null;this.src=\'public/img/products/f1.jpg\';">
                                     <div class="small-img-group">
             ';
             foreach ($pro->stocks as $stock) {
                 echo'
                                         <div class="small-img-container">
-                                            <img src="'.$stock->img.'" width="100%" class="small-img" alt="">
+                                            <img src="'.$stock->img.'" width="100%" class="small-img" alt="" onerror="this.onerror=null;this.src=\'public/img/products/f1.jpg\';">
                                         </div>
                 ';
             }
@@ -220,7 +220,7 @@
                                             <option value="3">XL</option>
                                             <option value="4">XXL</option>
                                         </select>
-                                        <input type="number" value="1">
+                                        <input name="amount" type="number" value="1">
                                         <button class="normal add-new-cart" data-product="'.$pro->id.'">Add To Cart</button>
                                     </form>
                                     <h4>Product Details</h4>
@@ -250,13 +250,13 @@
                         <div class="modal-body">
                             <section class="pro-detail">
                                 <div class="img-container">
-                                    <img src="'.$pro->default_img.'" width="100%" class="big-img" alt="">
+                                    <img src="'.$pro->default_img.'" width="100%" class="big-img" alt="" onerror="this.onerror=null;this.src=\'public/img/products/f1.jpg\';">
                                     <div class="small-img-group">
             ';
             foreach ($pro->stocks as $stock) {
                 echo'
                                         <div class="small-img-container">
-                                            <img src="'.$stock->img.'" width="100%" class="small-img" alt="">
+                                            <img src="'.$stock->img.'" width="100%" class="small-img" alt="" onerror="this.onerror=null;this.src=\'public/img/products/f1.jpg\';">
                                         </div>
                 ';
             }
@@ -274,7 +274,7 @@
                                             <option value="3">XL</option>
                                             <option value="4">XXL</option>
                                         </select>
-                                        <input type="number" value="1">
+                                        <input name="amount" type="number" value="1">
                                         <button class="normal add-fea-cart" data-product="'.$pro->id.'">Add To Cart</button>
                                     </form>
                                     <h4>Product Details</h4>

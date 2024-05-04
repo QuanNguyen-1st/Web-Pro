@@ -18,9 +18,10 @@ class LayoutsController extends BaseController
 		$feature = '';
 
 		$features = Feature::getAll();
-		$feature = $features[rand(0, count($features) - 1)];
-
-		$featurepros = Product::getFeaturePro($feature->id);
+		if (count($features) != 0) {
+			$feature = $features[rand(0, count($features) - 1)];
+			$featurepros = Product::getFeaturePro($feature->id);
+		}
 		foreach ($featurepros as $pro) {
 			$stocks = Stock::getAlt($pro->id);
 			$pro->stocks = $stocks;

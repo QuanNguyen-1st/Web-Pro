@@ -1,9 +1,13 @@
-$('.add-to-cart').on('click', (e) => {
+$('.add-to-cart').on('click', function (e) {
     e.preventDefault();
-    let product_id = $(this).attr('data-product');
+    let product_id = parseInt($(this).attr('data-product'));
     let imgSrc = $('#modal-' + product_id + ' ' + '.big-img').attr('src');
-    let size = $('#modal-' + product_id + ' ' + 'select[name="size"]').val();
-    let amount = $('#modal-' + product_id + ' ' +'select[name="amount"]').val();
+    let size = parseInt($('#modal-' + product_id + ' ' + 'select[name="size"]').val());
+    let amount = parseInt($('#modal-' + product_id + ' ' +'input[name="amount"]').val());
+    if (!Number.isInteger(size)) {
+        alert('Please enter size');
+        return;
+    }
 
     $.ajax({
         type: 'POST',
@@ -17,11 +21,19 @@ $('.add-to-cart').on('click', (e) => {
         success: function (response) {
             if (response == 'success')
             {
-                
+                alert('Added seccesfully');
             }
-            else
+            else if (response == 'Not enough stocks')
             {
                 alert('Not enough stocks');
+            }
+            else if (response == 'login') {
+                alert('Please login and try again');
+                location.href='index.php?page=main&controller=login&action=index';
+            }
+            else {
+                // alert('Already in cart');
+                alert(response);
             }
         }
     })

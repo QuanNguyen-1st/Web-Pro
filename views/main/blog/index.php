@@ -151,7 +151,7 @@
                 echo '
                 <div class="blog-box">
                     <div class="img-container">
-                        <img src="'.@$news->img.'" alt="">
+                        <img src="'.@$news->img.'" alt="" onerror="this.onerror=null;this.src=\'public/img/blog/b1.jpg\';">
                     </div>
                     <div class="text-container">
                         <h4>'.$news->title.'</h4>

@@ -11,7 +11,7 @@ class Cart {
     public $coupon_id;
     public $datePurchase;
 
-    public function __construct($user_id, $product_id, $size, $img, $amount, $purchase, $coupon_id, $datePurchase)
+    public function __construct($id, $user_id, $product_id, $size, $img, $amount, $purchase, $coupon_id, $datePurchase)
     {
         $this->id = $id;
         $this->user_id = $user_id;

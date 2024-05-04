@@ -36,7 +36,7 @@
                 foreach ($products as $pro) {
                     echo '
                     <div class="pro">
-                        <img src="'.$pro->default_img.'" alt="">
+                        <img src="'.$pro->default_img.'" alt="" onerror="this.onerror=null;this.src=\'public/img/products/f1.jpg\';">
                         <div class="des">
                             <span>brand</span>
                             <h5>'.$pro->name.'</h5>
@@ -96,13 +96,13 @@
                         <div class="modal-body">
                             <section class="pro-detail">
                                 <div class="img-container">
-                                    <img src="'.$pro->default_img.'" width="100%" class="big-img" alt="">
+                                    <img src="'.$pro->default_img.'" width="100%" class="big-img" onerror="this.onerror=null;this.src=\'public/img/products/f1.jpg\';" alt="">
                                     <div class="small-img-group">
             ';
             foreach ($pro->stocks as $stock) {
                 echo'
                                         <div class="small-img-container">
-                                            <img src="'.$stock->img.'" width="100%" class="small-img" alt="">
+                                            <img src="'.$stock->img.'" width="100%" class="small-img" alt="" onerror="this.onerror=null;this.src=\'public/img/products/f1.jpg\';">
                                         </div>
                 ';
             }
@@ -136,6 +136,8 @@
     }
     
     ?>
+
+<script src="public/js/shop/script.js"></script>
 
 <?php
     include_once('views/main/footer.php');

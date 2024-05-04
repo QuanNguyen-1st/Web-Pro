@@ -21,8 +21,8 @@ class CartController extends BaseController
 		$cart = [];
 
 		$procart = Product::getUserCart($email);
-		$products = $procart['products'];
-		$cart = $procart['cart'];
+		$products = $procart[0];
+		$cart = $procart[1];
 
 		if (!isset($_POST['coupon'])) {
 			$data = array('activeArr' => $this->activeArr, 'products' => $products, 'cart' => $cart);
@@ -41,13 +41,18 @@ class CartController extends BaseController
 	}
 
 	public function add() {
+		session_start();
+		if (!isset($_SESSION['guest'])) {
+			echo 'login';
+			exit();
+		}
+
 		$product_id = $_POST['product_id'];
         $img = $_POST['img'];
         $size = $_POST['size'];
         $amount = $_POST['amount'];
 
 		if (Stock::checkAvail($product_id, $size, $img, $amount)) {
-			session_start();
 			$email = $_SESSION['guest'];
 			Cart::insert($email, $product_id, $size, $img, $amount);
 			echo 'success';
@@ -83,7 +88,7 @@ class CartController extends BaseController
 				$carts[$i]->img,
 				$carts[$i]->amount
 			)) {
-				Cart::update($cart_ids[$i], $amounts[$i])
+				Cart::update($cart_ids[$i], $amounts[$i]);
 			}
 			else 
 			{

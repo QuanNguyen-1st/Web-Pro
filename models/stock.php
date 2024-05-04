@@ -4,21 +4,21 @@ class Stock {
     public $id;
     public $product_id;
     public $size;
-    public $stock;
+    public $stock_num;
     public $img;
 
-    public function __construct($id, $product_id, $size, $stock, $img) {
+    public function __construct($id, $product_id, $size, $stock_num, $img) {
         $this->id = $id;
         $this->product_id = $product_id;
         $this->size = $size;
-        $this->stock = $stock;
+        $this->stock_num = $stock_num;
         $this->img = $img;
     }
 
     static function checkAvail($product_id, $size, $img, $amount) {
         $db = DB::getInstance();
         $req = $db->query("
-            SELECT 1 FROM stock WHERE product_id = $product_id AND size = $size AND img = '$img' AND amount >= $amount;
+            SELECT 1 FROM stock WHERE product_id = $product_id AND size = $size AND img = '$img' AND stock_num >= $amount;
         ");
         if ($req->num_rows === 0) {
             return true;
@@ -30,9 +30,9 @@ class Stock {
         $db = DB::getInstance();
         $req = $db->query("
             SELECT * 
-            FROM stock 
+            FROM stock
             WHERE product_id = $product_id 
-              AND stock > 0
+              AND stock_num > 0
             GROUP BY img;
         ");
         $stocks = [];
@@ -41,7 +41,7 @@ class Stock {
                 $stock['id'],
                 $stock['product_id'],
                 $stock['size'],
-                $stock['stock'],
+                $stock['stock_num'],
                 $stock['img']
             );
         }
@@ -59,12 +59,12 @@ class Stock {
         return false;
     }
 
-    static function insert($product_id, $size,  $img, $stock) {
+    static function insert($product_id, $size,  $img, $stock_num) {
         if (Stock::check($product_id, $size, $img)) {
             $db = DB::getInstance();
             $req = $db->query("
-                INSERT INTO stock (product_id, size, stock, img)
-                VALUES ($product_id, $size, $stock, '$img');
+                INSERT INTO stock (product_id, size, stock_num, img)
+                VALUES ($product_id, $size, $stock_num, '$img');
             ");
             return $req;
         } else {
@@ -72,13 +72,13 @@ class Stock {
         }
     }
 
-    static function update($product_id, $size, $img, $stock) {
+    static function update($product_id, $size, $img, $stock_num) {
         if (Stock::check($product_id, $size, $img)) {
             return null;
         } else {
             $db = DB::getInstance();
             $req = $db->query("
-                UPDATE stock SET stock = $stock WHERE product_id = $product_id AND size = $size AND img = '$img';
+                UPDATE stock SET stock_num = $stock_num WHERE product_id = $product_id AND size = $size AND img = '$img';
             ");
             return $req;
         }
@@ -90,7 +90,7 @@ class Stock {
         } else {
             $db = DB::getInstance();
             $req = $db->query("
-                UPDATE stock SET stock = $stock - $amount WHERE product_id = $product_id AND size = $size AND img = '$img';
+                UPDATE stock SET stock_num = $stock_num - $amount WHERE product_id = $product_id AND size = $size AND img = '$img';
             ");
             return $req;
         }

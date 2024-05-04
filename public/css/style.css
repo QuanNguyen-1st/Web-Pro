@@ -601,48 +601,48 @@ footer a:hover {
 
 /* Product page Start */
 
-#pro-detail {
+.pro-detail {
     display: flex;
     margin-top: 20px;
 }
 
-#pro-detail .img-container {
+.pro-detail .img-container {
     width: 40%;
     margin-right: 50px;
 }
 
-#pro-detail .small-img-group {
+.pro-detail .small-img-group {
     margin-top: 5px;
     display: flex;
     justify-content: space-between;
 }
 
-#pro-detail .small-img-container {
+.pro-detail .small-img-container {
     flex-basis: 24%;
     cursor: pointer;
 }
 
-#pro-detail .detail-container {
+.pro-detail .detail-container {
     width: 50%;
     padding-top: 30px;
 
 }
 
-#pro-detail .detail-container h4 {
+.pro-detail .detail-container h4 {
     padding: 40px 0 20px 0;
 }
 
-#pro-detail .detail-container form {
+.pro-detail .detail-container form {
     margin-top: 30px;
 }
 
-#pro-detail .detail-container select {
+.pro-detail .detail-container select {
     display: block;
     padding: 5px 10px;
     margin-bottom: 20px;
 }
 
-#pro-detail .detail-container input {
+.pro-detail .detail-container input {
     width: 50px;
     height: 50px;
     font-size: 16px;
@@ -650,20 +650,20 @@ footer a:hover {
     margin-right: 10px;
 }
 
-#pro-detail .detail-container input:focus {
+.pro-detail .detail-container input:focus {
     outline: none;
 }
 
-#pro-detail .detail-container button {
+.pro-detail .detail-container button {
     background-color: var(--main-color);
     color: #fff;
 }
 
-#pro-detail .detail-container p {
+.pro-detail .detail-container p {
     line-height: 25px;
 }
 
-#pro-detail .pro-path-mobile {
+.pro-detail .pro-path-mobile {
     display: none;
 }
 
@@ -1325,27 +1325,27 @@ footer a:hover {
     /* Home page End */
 
     /* Product page Start */
-    #pro-detail {
+    .pro-detail {
         display: flex;
         flex-direction: column;
     }
 
-    #pro-detail .img-container {
+    .pro-detail .img-container {
         margin-right: 0px;
         width: 100%;
     }
 
-    #pro-detail .detail-container {
+    .pro-detail .detail-container {
         margin-left: 1px;
         width: 100%;
     }
 
-    #pro-detail .pro-path-mobile {
+    .pro-detail .pro-path-mobile {
         display: initial;
         margin-bottom: 5px;
     }
 
-    #pro-detail .pro-path {
+    .pro-detail .pro-path {
         display: none;
     }
 

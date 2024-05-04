@@ -1,9 +1,13 @@
-$('.add-fea-cart').on('click', (e) => {
+$('.add-fea-cart').on('click', function (e) {
     e.preventDefault();
-    let product_id = $(this).attr('data-product');
+    let product_id = parseInt($(this).attr('data-product'));
     let imgSrc = $('#modal-feature-' + product_id + ' ' + '.big-img').attr('src');
-    let size = $('#modal-feature-' + product_id + ' ' + 'select[name="size"]').val();
-    let amount = $('#modal-feature-' + product_id + ' ' +'select[name="amount"]').val();
+    let size = parseInt($('#modal-feature-' + product_id + ' ' + 'select[name="size"]').val());
+    let amount = parseInt($('#modal-feature-' + product_id + ' ' +'input[name="amount"]').val());
+    if (!Number.isInteger(size)) {
+        alert('Please enter size');
+        return;
+    }
 
     $.ajax({
         type: 'POST',
@@ -17,23 +21,34 @@ $('.add-fea-cart').on('click', (e) => {
         success: function (response) {
             if (response == 'success')
             {
-                
+                alert('Added seccesfully');
             }
-            else
+            else if (response == 'Not enough stocks')
             {
                 alert('Not enough stocks');
+            }
+            else if (response == 'login') {
+                alert('Please login and try again');
+                location.href='index.php?page=main&controller=login&action=index';
+            }
+            else {
+                // alert('Already in cart');
+                alert(response);
             }
         }
     })
 });
 
-$('.add-new-cart').on('click', (e) => {
+$('.add-new-cart').on('click', function (e) {
     e.preventDefault();
-    let product_id = $(this).attr('data-product');
+    let product_id = parseInt($(this).attr('data-product'));
     let imgSrc = $('#modal-newpro-' + product_id + ' ' + '.big-img').attr('src');
-    let size = $('#modal-newpro-' + product_id + ' ' + 'select[name="size"]').val();
-    let amount = $('#modal-newpro-' + product_id + ' ' +'select[name="amount"]').val();
-
+    let size = parseInt($('#modal-newpro-' + product_id + ' ' + 'select[name="size"]').val());
+    let amount = parseInt($('#modal-newpro-' + product_id + ' ' +'input[name="amount"]').val());
+    if (!Number.isInteger(size)) {
+        alert('Please enter size');
+        return;
+    }
     $.ajax({
         type: 'POST',
         url: 'index.php?page=main&controller=cart&action=add',
@@ -46,11 +61,19 @@ $('.add-new-cart').on('click', (e) => {
         success: function (response) {
             if (response == 'success')
             {
-                
+                alert('Added seccesfully');
             }
-            else
+            else if (response == 'Not enough stocks')
             {
                 alert('Not enough stocks');
+            }
+            else if (response == 'login') {
+                alert('Please login and try again');
+                location.href='index.php?page=main&controller=login&action=index';
+            }
+            else {
+                // alert('Already in cart');
+                alert(response);
             }
         }
     })
