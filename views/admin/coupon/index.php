@@ -18,12 +18,13 @@ require_once('views/admin/content_layouts.php'); ?>
 		<div class="container-fluid">
 			<div class="row mb-2">
 				<div class="col-sm-6">
-					<h1>Quản lý Giỏ hàng</h1>
+					<h1>Quản lý Coupons</h1>
 				</div>
 				<div class="col-sm-6">
 					<ol class="breadcrumb float-sm-right">
 						<li class="breadcrumb-item"><a href="index.php?page=admin&controller=layouts&action=index">Home</a></li>
-						<li class="breadcrumb-item active">Quản lý Giỏ hàng</li>
+						<li class="breadcrumb-item"><a href="index.php?page=admin&controller=products&action=index">Quản lý sản phẩm</a></li>
+						<li class="breadcrumb-item active">Coupon</li>
 					</ol>
 				</div>
 			</div>
@@ -36,7 +37,7 @@ require_once('views/admin/content_layouts.php'); ?>
 					<div class="card">
 						<div class="card-body">
 							<!-- Table Here -->
-							<table id="#" class="table table-bordered table-striped" style="margin-top:6px;">
+							<table id="tab-coupon" class="table table-bordered table-striped" style="margin-top:6px;">
 								<thead>
 									<tr class="text-center">
 										<th scope="col">STT</th>
@@ -51,11 +52,11 @@ require_once('views/admin/content_layouts.php'); ?>
 								<tbody>
 
 								</tbody>
-								<tfoot>
+								<!-- <tfoot>
 									<tr class="text-center">
 										<th></th>
 									</tr>
-								</tfoot>
+								</tfoot> -->
 							</table>
 							<!-- Or Modal Here -->
 

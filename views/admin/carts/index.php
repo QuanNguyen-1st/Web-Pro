@@ -36,7 +36,7 @@ require_once('views/admin/content_layouts.php'); ?>
 					<div class="card">
 						<div class="card-body">
 							<!-- Table Here -->
-							<table id="#" class="table table-bordered table-striped" style="margin-top:6px;">
+							<table id="tab-cart" class="table table-bordered table-striped" style="margin-top:6px;">
 								<thead>
 									<tr class="text-center">
 										<th scope="col">STT</th>
@@ -53,11 +53,11 @@ require_once('views/admin/content_layouts.php'); ?>
 								<tbody>
 
 								</tbody>
-								<tfoot>
+								<!-- <tfoot>
 									<tr class="text-center">
 										<th></th>
 									</tr>
-								</tfoot>
+								</tfoot> -->
 							</table>
 							<!-- Or Modal Here -->
 
@@ -74,6 +74,6 @@ require_once('views/admin/content_layouts.php'); ?>
 <?php
 require_once('views/admin/footer.php'); ?>
 
-<script src="public/js/admin/admin/script.js"></script>
+<script src="public/js/admin/cart/script.js"></script>
 </body>
 </html>

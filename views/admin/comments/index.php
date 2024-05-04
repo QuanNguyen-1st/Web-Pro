@@ -92,11 +92,11 @@ require_once('views/admin/content_layouts.php'); ?>
 									}
 								?>
 								</tbody>
-								<tfoot>
+								<!-- <tfoot>
 									<tr class="text-center">
 										<th></th>
 									</tr>
-								</tfoot>
+								</tfoot> -->
 							</table>
 							<!-- Or Modal Here -->
 							<div class="modal fade" id="HideStudentModal" tabindex="-1" role="dialog" aria-labelledby="HideStudentModal" aria-hidden="true">

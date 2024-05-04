@@ -102,7 +102,7 @@
 								<li class="nav-item">	
 									<a class="nav-link <?php echo $activeArr['couponActive']; ?>" href="index.php?page=admin&controller=coupons&action=index">
 										<i class="far fa-circle nav-icon"></i>
-										<p>Quản lý coupons</p>
+										<p>Quản lý Coupons</p>
 									</a>
 								</li>
 							</ul>

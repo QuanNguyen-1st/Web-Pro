@@ -37,7 +37,7 @@ require_once('views/admin/content_layouts.php'); ?>
 					<div class="card">
 						<div class="card-body">
 							<!-- Table Here -->
-							<table id="#" class="table table-bordered table-striped" style="margin-top:6px;">
+							<table id="tab-feature" class="table table-bordered table-striped" style="margin-top:6px;">
 								<thead>
 									<tr class="text-center">
 										<th scope="col">STT</th>
@@ -49,11 +49,11 @@ require_once('views/admin/content_layouts.php'); ?>
 								<tbody>
 
 								</tbody>
-								<tfoot>
+								<!-- <tfoot>
 									<tr class="text-center">
 										<th></th>
 									</tr>
-								</tfoot>
+								</tfoot> -->
 							</table>
 							<!-- Or Modal Here -->
 
