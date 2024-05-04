@@ -96,3 +96,6 @@ require_once('views/admin/content_layouts.php'); ?>
 
 <?php
 require_once('views/admin/footer.php'); ?>
+
+</body>
+</html>

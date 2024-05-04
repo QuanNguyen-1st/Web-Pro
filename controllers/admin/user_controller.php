@@ -1,5 +1,6 @@
 <?php
 require_once('controllers/admin/base_controller.php');
+require_once('models/user.php');
 class UserController extends BaseController
 {
 	public $activeArr = array('homeActive' => '', 'adminActive' => '', 'commentActive' => '', 'userActive' => 'active', 'productActive' => '', 'stockActive' => '', 'featureActive' => '', 'cartActive' => '', 'newsActive' => '');
@@ -14,7 +15,7 @@ class UserController extends BaseController
 		$data = array('user' => $user, 'activeArr' => $this->activeArr);
 		$this->render('index', $data);
 	}
-	
+
 	public function add()
 	{
 		$fname = $_POST['fname'];

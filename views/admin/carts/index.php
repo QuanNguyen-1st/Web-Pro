@@ -65,3 +65,7 @@ require_once('views/admin/content_layouts.php'); ?>
 
 <?php
 require_once('views/admin/footer.php'); ?>
+
+<script src="public/js/admin/admin/script.js"></script>
+</body>
+</html>

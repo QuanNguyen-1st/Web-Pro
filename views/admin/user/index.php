@@ -37,7 +37,7 @@ require_once('views/admin/content_layouts.php'); ?>
 						<div class="card-body">
 						<button class="btn" style="background-color: #088178; color: white" type="button" data-bs-toggle="modal" data-bs-target="#addUserModal">Thêm mới</button>
 							<!-- Table Here -->
-							<table id="#" class="table table-bordered table-striped" style="margin-top:6px;">
+							<table id="tab-user" class="table table-bordered table-striped" style="margin-top:6px;">
 								<thead>
 									<tr class="text-center">
 										<th>STT</th>
@@ -303,3 +303,7 @@ require_once('views/admin/content_layouts.php'); ?>
 
 <?php
 require_once('views/admin/footer.php'); ?>
+
+<script src="public/js/admin/user/script.js"></script>
+</body>
+</html>
