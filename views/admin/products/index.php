@@ -36,6 +36,7 @@ require_once('views/admin/content_layouts.php'); ?>
 				<div class="col-12">
 					<div class="card">
 						<div class="card-body">
+						<button class="btn" style="background-color: #088178; color: white" type="button" data-bs-toggle="modal" data-bs-target="#addProductModal">Thêm mới</button>
 							<!-- Table Here -->
 							<table id="tab-product" class="table table-bordered table-striped" style="margin-top:6px;">
 								<thead>
@@ -61,6 +62,29 @@ require_once('views/admin/content_layouts.php'); ?>
 								</tfoot> -->
 							</table>
 							<!-- Or Modal Here -->
+
+							<div class="modal fade" id="addProductModal" tabindex="-1" role="dialog" aria-labelledby="addProductModal" aria-hidden="true">
+                                <div class="modal-dialog modal-lg" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Thêm mới sản phẩm</h5><button class="close" type="button" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        </div>
+                                        <form id="form-add-student" action="index.php?page=admin&controller=news&action=add" enctype="multipart/form-data" method="post">
+                                            <div class="modal-body">
+												<div class="form-group"><label>Tên sản phẩm</label><input class="form-control" type="text" placeholder="Tên sản phẩm" name="name" /></div>
+                                                <div class="form-group"> <label>Mô tả</label> <textarea class="form-control" placeholder="Mô tả" name="description" rows="5"></textarea></div>
+                                                <div class="form-group"><label>Giá tiền</label><input class="form-control" type="number" placeholder="Gía tiền" name="price" /></div>
+                                                
+												<div class="form-group">
+													<label>Hình ảnh</label>&nbsp
+													<input type="file" name="fileToUpload" id="fileToUpload" />
+												</div>
+											</div>
+                                            <div class="modal-footer"><button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Đóng</button><button class="btn btn-primary" type="submit">Thêm mới</button></div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
 
 						</div>
 					</div>

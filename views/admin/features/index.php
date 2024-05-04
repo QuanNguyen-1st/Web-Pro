@@ -36,6 +36,7 @@ require_once('views/admin/content_layouts.php'); ?>
 				<div class="col-12">
 					<div class="card">
 						<div class="card-body">
+						<button class="btn" style="background-color: #088178; color: white" type="button" data-bs-toggle="modal" data-bs-target="#addFeatureModal">Thêm mới</button>
 							<!-- Table Here -->
 							<table id="tab-feature" class="table table-bordered table-striped" style="margin-top:6px;">
 								<thead>
@@ -56,6 +57,23 @@ require_once('views/admin/content_layouts.php'); ?>
 								</tfoot> -->
 							</table>
 							<!-- Or Modal Here -->
+
+							<div class="modal fade" id="addFeatureModal" tabindex="-1" role="dialog" aria-labelledby="addFeatureModal" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Thêm mới Feature</h5><button class="close" type="button" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        </div>
+                                        <form id="form-add-student" action="index.php?page=admin&controller=news&action=add" enctype="multipart/form-data" method="post">
+                                            <div class="modal-body">
+                                                <div class="form-group"><label>Tiêu đề</label><input class="form-control" type="text" placeholder="Tiêu đề" name="title" /></div>
+
+											</div>
+                                            <div class="modal-footer"><button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Đóng</button><button class="btn btn-primary" type="submit">Thêm mới</button></div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
 
 						</div>
 					</div>

@@ -152,11 +152,11 @@ class Product {
         return array($products, $cart);
     }
 
-    static function insert($name, $price, $description, $rating, $default_img) {
+    static function insert($name, $price, $description, $default_img) {
         $db = DB::getInstance();
         $req = $db->query("
             INSERT INTO product (name, price, description, rating, date, default_img)
-            VALUES ('$name', $price, '$description', $rating, NOW(), '$default_img');
+            VALUES ('$name', $price, '$description', 5, NOW(), '$default_img');
         ");
         return $req;
     }
