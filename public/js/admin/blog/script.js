@@ -43,11 +43,13 @@ $(".btn-edit").click(function (e) {
     var description = $(this).attr('data-bs-description');
     var content = $(this).attr('data-bs-content');
     var title = $(this).attr('data-bs-title');
+    var img = $(this).attr('data-bs-img');
     // console.log(title);
     $("#EditStudentModal input[name='id']").val(id);
     $("#EditStudentModal textarea[name='description']").val(description);
     $("#EditStudentModal textarea[name='content']").val(content);
     $("#EditStudentModal input[name='title']").val(title);
+    $("#EditStudentModal input[name='img']").val(img);
     $('#EditStudentModal').modal('show');
 });
 

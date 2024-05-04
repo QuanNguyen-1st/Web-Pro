@@ -151,7 +151,7 @@ require_once('views/admin/content_layouts.php'); ?>
 												</div>
 												<div class="form-group">
 													<label>Hình ảnh</label>&nbsp
-													<input type="file" name="fileToUpload" id="fileToUpload" />
+													<input type="file" name="fileToUpload" />
 												</div>
 
 											</div>
@@ -229,7 +229,7 @@ require_once('views/admin/content_layouts.php'); ?>
 												</div>
 												<div class="form-group">
 													<label>Hình ảnh mới</label>&nbsp
-													<input type="file" name="fileToUpload" id="fileToUpload" />
+													<input type="file" name="fileToUpload" />
 												</div>
 											</div>
 											<div class="modal-footer">

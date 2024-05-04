@@ -91,7 +91,7 @@ require_once('views/admin/content_layouts.php'); ?>
 													</td>      
 													<td style=\"width:150px;\" class=\"text-center\"> " .
 													$button . "
-													<button class=\"btn-edit btn btn-primary btn-xs\" style=\"margin-right: 5px\" data-bs-id='$new->id'  data-bs-description='$new->description' data-bs-content='$new->content' data-bs-title='$new->title' > <i style=\"font-size:17px;\" class=\"fas fa-edit\" ></i></button>
+													<button class=\"btn-edit btn btn-primary btn-xs\" style=\"margin-right: 5px\" data-bs-id='$new->id'  data-bs-description='$new->description' data-bs-content='$new->content' data-bs-title='$new->title' data-bs-img='$new->img'> <i style=\"font-size:17px;\" class=\"fas fa-edit\" ></i></button>
 													<button class=\"btn-delete btn btn-danger btn-xs\" style=\"margin-right: 5px\" data-bs-id='$new->id' ><i style=\"font-size:17px;\" class=\"fas fa-trash\"></i></button>
 												</td>                                                                                                                                                                                       
 												</tr>";
@@ -118,7 +118,11 @@ require_once('views/admin/content_layouts.php'); ?>
                                                 <div class="form-group"> <label>Mô tả</label> <textarea class="form-control" placeholder="Mô tả" name="description" rows="5"></textarea></div>
                                                 <div class="form-group"> <label>Nội dung</label> <textarea class="form-control" placeholder="Nội dung" name="content" rows="10"></textarea></div>
                                                 <div class="form-group"><label>Tiêu đề</label><input class="form-control" type="text" placeholder="Tiêu đề" name="title" /></div>
-                                            </div>
+												<div class="form-group">
+													<label>Hình ảnh</label>&nbsp
+													<input type="file" name="fileToUpload" id="fileToUpload" />
+												</div>
+											</div>
                                             <div class="modal-footer"><button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Đóng</button><button class="btn btn-primary" type="submit">Thêm mới</button></div>
                                         </form>
                                     </div>
@@ -137,7 +141,14 @@ require_once('views/admin/content_layouts.php'); ?>
                                                     <div class="form-group"><label>Tiêu đề </label><input class="form-control" type="text" name="title" /></div>
                                                     <div class="form-group"> <label>Mô tả</label> <textarea class="form-control" name="description" rows="5"></textarea></div>
                                                     <div class="form-group"> <label>Nội dung</label> <textarea class="form-control" name="content" rows="10"></textarea></div>
-
+													<div class="form-group">
+														<label>Hình ảnh hiện tại </label>
+														<input class="form-control" type="text" name="img" readonly />
+													</div>
+													<div class="form-group">
+														<label>Hình ảnh</label>&nbsp
+														<input type="file" name="fileToUpload" id="fileToUpload" />
+													</div>
                                                 </div>
                                                 <div class="modal-footer"><button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Đóng</button><button class="btn btn-info" type="submit">Chỉnh sửa</button></div>
                                             </form>

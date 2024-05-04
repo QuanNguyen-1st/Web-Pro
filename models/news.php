@@ -101,7 +101,14 @@ class News
     static function update($id, $title, $description, $content, $img)
     {
         $db = DB::getInstance();
-        $req = $db->query("UPDATE news SET content = '$content', title = '$title', description = '$description', img = '$img' WHERE id = $id;");
+        $req = $db->query("
+            UPDATE news 
+            SET content = '$content', 
+            title = '$title', 
+            description = '$description', 
+            img = '$img' 
+            WHERE id = $id;
+        ");
         return $req;
     }
 
