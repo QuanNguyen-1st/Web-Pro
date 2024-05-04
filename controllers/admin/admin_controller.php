@@ -1,5 +1,6 @@
 <?php
 require_once('controllers/admin/base_controller.php');
+require_once('models/admin.php');
 class AdminController extends BaseController
 {
 	public $activeArr = array('homeActive' => '', 'adminActive' => 'active', 'commentActive' => '', 'userActive' => '', 'productActive' => '', 'stockActive' => '', 'featureActive' => '', 'cartActive' => '', 'newsActive' => '');
@@ -10,7 +11,31 @@ class AdminController extends BaseController
 
 	public function index()
 	{
-		$data = array('activeArr' => $this->activeArr);
+		$admin = Admin::getAll();
+		$data = array('activeArr' => $this->activeArr, 'admin' => $admin);
 		$this->render('index', $data);
+	}
+
+	public function add()
+	{
+		$username = $_POST['username'];
+		$password = $_POST['password'];
+		$add_new = Admin::insert($username, $password);
+		header('Location: index.php?page=admin&controller=admin&action=index');
+	}
+
+	public function edit()
+	{
+		$username = $_POST['username'];
+		$newPassword = $_POST['new-password'];
+		$change_pass = Admin::changePassword_($username, $newPassword);
+		header('Location: index.php?page=admin&controller=admin&action=index');
+	}
+
+	public function delete()
+	{
+		$username = $_POST['username'];
+		$delete_user = Admin::delete($username);
+		header('Location: index.php?page=admin&controller=admin&action=index');
 	}
 }

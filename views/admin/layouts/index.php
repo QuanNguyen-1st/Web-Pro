@@ -69,13 +69,13 @@ require_once('views/admin/content_layouts.php'); ?>
 							
 							<li class="mt-2">
 								<a href="index.php?page=admin&controller=cart&action=index"> 
-									<i class="fas fa-newspaper"></i>
+									<i class="fas fa-luggage-cart"></i>
 									Quản lý giỏ hàng
 								</a>
 							</li>
 							<li class="mt-2">
 								<a href="index.php?page=admin&controller=news&action=index">
-									<i class="fas fa-luggage-cart"></i>
+									<i class="fas fa-newspaper"></i>
 									Quản lý tin tức
 								</a>
 							</li>
