@@ -110,7 +110,7 @@
                     echo '
                     <tr>
                         <td>Coupon</td>
-                        <td><span id="discount">'.$coupon->discount.'</span>%</td>
+                        <td><span id="discount" coupon-code="'.$coupon->coupon_num.'">'.$coupon->discount.'</span>%</td>
                     </tr>
                     ';
                 }
@@ -120,7 +120,7 @@
                     <td><strong>$<span id="final-price">0</span></strong></td>
                 </tr>
             </table>
-            <button class="normal">Proceed to checkout</button>
+            <button class="normal" id="make-purchase">Proceed to checkout</button>
         </form>
     </section>
 

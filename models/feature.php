@@ -26,6 +26,7 @@ class Feature {
                 $feature['createAt'],
             );
         }
+        return $features;
     }
 
     static function insert($title)

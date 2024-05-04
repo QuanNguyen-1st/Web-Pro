@@ -36,3 +36,41 @@ $('#deleteProductConfirm').on('shown.bs.modal',(e) => {
     $('#del-cart-holder').val(cart_id);
 });
 
+$('#make-purchase').on('click', (e) => {
+    e.preventDefault();
+    let cart_ids = [];
+    let amounts = [];
+    let coupon = '';
+    
+    $('.cart-item').each((idx, item) => {
+        cart_ids.push($(item).find('a').getAttribute('data-bs-pro'));
+        amounts.push($(item).find('input').val());
+        if (discount) coupon = discount.getAttribute('coupon-code');
+    })
+
+    let data = {
+        cart_ids: cart_ids,
+        amounts: amounts,
+    }
+
+    if (coupon == '') {
+
+    } else {
+        data['coupon'] = coupon;
+    }
+
+    $.ajax({
+        type: 'POST',
+        url: 'index.php?page=main&controller=cart&action=purchase',
+        data: data,
+        success: function (response) {
+            if (response == 'success') {
+                
+            }
+            else {
+                alert('Not enough stocks');
+            }
+        }
+    })
+})
+

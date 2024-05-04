@@ -36,7 +36,7 @@ $('.add-new-cart').on('click', (e) => {
 
     $.ajax({
         type: 'POST',
-        url:'index.php?page=main&controller=cart&action=add',
+        url: 'index.php?page=main&controller=cart&action=add',
         data: {
             product_id: product_id,
             img: imgSrc,

@@ -29,7 +29,45 @@ class Cart {
         $req = $db->query(
             "SELECT * FROM cart;"
         );
-        return $req;
+        $carts = [];
+        foreach($req->fetch_all(MYSQLI_ASSOC) as $cart) {
+            $carts[] = new Cart(
+                $cart['id'],
+                $cart['user_id'],
+                $cart['product_id'],
+                $cart['size'],
+                $cart['img'],
+                $cart['amount'],
+                $cart['purchase'],
+                $cart['coupon_id'],
+                $cart['datePurchase'],
+            );
+        }
+        return $carts;
+    }
+
+    static function get($id) {
+        $db = DB::getInstance();
+        $req = $db->query(
+            "SELECT 1 FROM cart WHERE id = $id"
+        );
+        if ($req->num_rows === 0) {
+            return null;
+        }
+        $result = $req->fetch_assoc();
+        $cart = new Cart(
+            $result['id'],
+            $result['user_id'],
+            $result['product_id'],
+            $result['size'],
+            $result['img'],
+            $result['amount'],
+            $result['purchase'],
+            $result['coupon_id'],
+            $result['datePurchase'],
+        );
+
+        return $cart;
     }
 
     static function insert($user_id, $product_id, $size, $img, $amount) {

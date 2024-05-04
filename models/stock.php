@@ -29,11 +29,12 @@ class Stock {
     static function getAlt($product_id) {
         $db = DB::getInstance();
         $req = $db->query("
-            SELECT 4 FROM stock WHERE product_id = $product_id AND stock > 0;
+            SELECT * 
+            FROM stock 
+            WHERE product_id = $product_id 
+              AND stock > 0
+            GROUP BY img;
         ");
-        if ($req->num_rows === 0) {
-            return null;
-        }
         $stocks = [];
         foreach ($req->fetch_all(MYSQLI_ASSOC) as $stock) {
             $stocks[] = new Stock(
@@ -58,8 +59,8 @@ class Stock {
         return false;
     }
 
-    static function insert($product_id, $size, $stock, $img) {
-        if (Stock::check($product_id, $size)) {
+    static function insert($product_id, $size,  $img, $stock) {
+        if (Stock::check($product_id, $size, $img)) {
             $db = DB::getInstance();
             $req = $db->query("
                 INSERT INTO stock (product_id, size, stock, img)
@@ -71,13 +72,25 @@ class Stock {
         }
     }
 
-    static function update($product_id, $size, $stock) {
-        if (Stock::check($product_id, $size)) {
+    static function update($product_id, $size, $img, $stock) {
+        if (Stock::check($product_id, $size, $img)) {
             return null;
         } else {
             $db = DB::getInstance();
             $req = $db->query("
-                UPDATE stock SET stock = $stock WHERE product_id = $product_id AND size = $size;
+                UPDATE stock SET stock = $stock WHERE product_id = $product_id AND size = $size AND img = '$img';
+            ");
+            return $req;
+        }
+    }
+
+    static function makePurchase($product_id, $size, $img, $amount) {
+        if (Stock::check($product_id, $size, $img)) {
+            return null;
+        } else {
+            $db = DB::getInstance();
+            $req = $db->query("
+                UPDATE stock SET stock = $stock - $amount WHERE product_id = $product_id AND size = $size AND img = '$img';
             ");
             return $req;
         }

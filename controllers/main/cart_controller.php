@@ -70,20 +70,51 @@ class CartController extends BaseController
 		$cart_ids = $_POST['cart_ids'];
 		$amounts = $_POST['amounts'];
 
-		for ($i = 0; $i < count($cart_ids); $i++) {
-			Cart::update($cart_ids[$i], $amounts[$i]);	
+		$carts = [];
+
+		foreach ($cart_ids as $cart_id) {
+			$carts[] = Cart::get($cart_id);
+		}
+
+		for ($i = 0; $i < count($carts); $i++) {
+			if (Stock::checkAvail(
+				$carts[$i]->product_id,
+				$carts[$i]->size,
+				$carts[$i]->img,
+				$carts[$i]->amount
+			)) {
+				Cart::update($cart_ids[$i], $amounts[$i])
+			}
+			else 
+			{
+				echo 'Not enough stocks';
+				exit();
+			};	
 		}
 
 		if (!isset($_POST['coupon'])) {
 			for ($i = 0; $i < count($cart_ids); $i++) {
 				Cart::makePurchase($cart_ids[$i], null);
+				Stock::update(
+					$carts[$i]->product_id,
+					$carts[$i]->size,
+					$carts[$i]->img,
+					$carts[$i]->amount
+				);
 			}
 		} else {
 			$coupon = $_POST['coupon'];
 			for ($i = 0; $i < count($cart_ids); $i++) {
 				Cart::makePurchase($cart_ids[$i], $coupon);
+				Stock::update(
+					$cart_ids[$i]->product_id,
+					$cart_ids[$i]->size,
+					$cart_ids[$i]->img,
+					$carts[$i]->amount
+				);
 			}
 		}
+		echo 'success';
 		
 		header('Location:index.php?page=main&controller=cart&action=index');
 	}
