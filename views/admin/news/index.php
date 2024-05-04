@@ -92,7 +92,7 @@ require_once('views/admin/content_layouts.php'); ?>
 													<td style=\"width:150px;\" class=\"text-center\"> " .
 													$button . "
 													<button class=\"btn-edit btn btn-primary btn-xs\" style=\"margin-right: 5px\" data-bs-id='$new->id'  data-bs-description='$new->description' data-bs-content='$new->content' data-bs-title='$new->title' data-bs-img='$new->img'> <i style=\"font-size:17px;\" class=\"fas fa-edit\" ></i></button>
-													<button class=\"btn-delete btn btn-danger btn-xs\" style=\"margin-right: 5px\" data-bs-id='$new->id' ><i style=\"font-size:17px;\" class=\"fas fa-trash\"></i></button>
+													<button class=\"btn-delete btn btn-danger btn-xs\" style=\"margin-right: 5px\" data-bs-id='$new->id' data-bs-img='$new->img'><i style=\"font-size:17px;\" class=\"fas fa-trash\"></i></button>
 												</td>                                                                                                                                                                                       
 												</tr>";
 										$index++;
@@ -164,6 +164,7 @@ require_once('views/admin/content_layouts.php'); ?>
                                             </div>
                                             <form action="index.php?page=admin&controller=news&action=delete" method="post">
                                                 <div class="modal-body"><input type="hidden" name="id" />
+												<input type="hidden" name="img" />
                                                     <p>Bạn có chắc chắn xóa bài viết này</p>
                                                 </div>
                                                 <div class="modal-footer"><button class="btn btn-secondary btn-outline-light" type="button" data-bs-dismiss="modal">Đóng</button><button class="btn btn-danger btn-outline-light" type="submit">Xóa</button></div>

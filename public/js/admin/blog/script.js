@@ -55,6 +55,9 @@ $(".btn-edit").click(function (e) {
 
 $(".btn-delete").click(function (e) {
     var id = $(this).attr('data-bs-id');
+    var img = $(this).attr('data-bs-img');
+
+    $("#DeleteStudentModal input[name='img']").val(img);
     $("#DeleteStudentModal input[name='id']").val(id);
     $('#DeleteStudentModal').modal('show');
 });

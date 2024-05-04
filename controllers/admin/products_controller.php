@@ -57,7 +57,9 @@ class ProductsController extends BaseController
 
 	public function delete() {
 		Product::delete($_POST['id']);
-		unlink($_POST['img']);
+		if (isset($_POST['img'])) {
+			unlink($_POST['img']);
+		}
 		header('Location: index.php?page=admin&controller=products&action=index');
 	}
 

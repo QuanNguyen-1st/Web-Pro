@@ -93,6 +93,9 @@ class NewsController extends BaseController
     public function delete(){
         $id = $_POST['id'];
         News::delete($id);
+		if (isset($_POST['img'])) {
+			unlink($_POST['img']);
+		}
         header('Location: index.php?page=admin&controller=news&action=index');
     }
 
