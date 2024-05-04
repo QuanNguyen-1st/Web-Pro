@@ -68,7 +68,7 @@ require_once('views/admin/content_layouts.php'); ?>
 												<td style="width:100px;">'.($product->default_img ? "<img src=\"$product->default_img\" alt=\"\" style=\"width:100%;\"> " : "Không có").'</td>
 												<td>
 													<button class="btn-edit btn btn-primary btn-xs" style="margin-right: 5px" data-bs-toggle="tooltip" data-bs-placement="top" title="Chỉnh sửa" data-bs-id="'.$product->id.'" data-bs-name="'.$product->name.'" data-bs-description="'.$product->description.'" data-bs-price="'.$product->price.'" data-bs-img="'.$product->default_img.'" data-bs-feature="'.$product->feature_id.'"> <i style="font-size:17px;" class="fas fa-edit" ></i></button>
-													<button class="btn-delete btn btn-danger btn-xs" style="margin-right: 5px" data-bs-toggle="tooltip" data-bs-placement="top" title="Xóa" data-bs-id="'.$product->id.'"><i style="font-size:17px;" class="fas fa-trash"></i></button>
+													<button class="btn-delete btn btn-danger btn-xs" style="margin-right: 5px" data-bs-toggle="tooltip" data-bs-placement="top" title="Xóa" data-bs-id="'.$product->id.'" data-bs-img="'.$product->default_img.'"><i style="font-size:17px;" class="fas fa-trash"></i></button>
 												</td>
 											</tr>
 											
@@ -124,7 +124,7 @@ require_once('views/admin/content_layouts.php'); ?>
 													<select class="form-control" name="feature_id">
 														<?php
 															foreach ($features as $feature) {
-																echo'<option value="'.$featire->id.'">'.$featire->title.'</option>';
+																echo'<option value="'.$feature->id.'">'.$feature->title.'</option>';
 															}
 														?>
 													</select>
@@ -149,7 +149,9 @@ require_once('views/admin/content_layouts.php'); ?>
                                         </div>
 										
                                         <form id="form-delete-student" action="index.php?page=admin&controller=products&action=delete" enctype="multipart/form-data" method="post">
-												<div class="modal-body"><input type="hidden" name="id" />
+												<div class="modal-body">
+													<input type="hidden" name="id" />
+													<input class="form-control" type="hidden" name="img" readonly/>
 													<p>Bạn đã chắc chắn?</p>
                                                 </div>	
                                             <div class="modal-footer"><button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Đóng</button>

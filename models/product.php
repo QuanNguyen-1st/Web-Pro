@@ -197,4 +197,11 @@ class Product {
         }
         
     }
+
+    static function removeFeature($feature_id) {
+        $db = DB::getInstance();
+        $req = $db->query("
+            UPDATE product SET feature_id = NULL WHERE feature_id = $feature_id;
+        ");
+    }
 }

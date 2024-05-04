@@ -48,7 +48,23 @@ require_once('views/admin/content_layouts.php'); ?>
 									</tr>
 								</thead>
 								<tbody>
-
+									<?php
+									foreach ($features as $feature) {
+										$index = 1;
+										echo'
+										<tr>
+											<td>'.$index++.'</td>
+											<td>'.$feature->title.'</td>
+											<td>'.$feature->createAt.'</td>
+											<td>
+												<button class="btn-edit btn btn-primary btn-xs" style="margin-right: 5px" data-bs-toggle="tooltip" data-bs-placement="top" title="Chỉnh sửa" data-bs-id="'.$feature->id.'" data-bs-title="'.$feature->title.'"> <i style="font-size:17px;" class="fas fa-edit" ></i></button>
+												<button class="btn-delete btn btn-danger btn-xs" style="margin-right: 5px" data-bs-toggle="tooltip" data-bs-placement="top" title="Xóa" data-bs-id="'.$feature->id.'"><i style="font-size:17px;" class="fas fa-trash"></i></button>
+											</td>
+										</tr>
+										';
+									}
+									
+									?>
 								</tbody>
 								<!-- <tfoot>
 									<tr class="text-center">
@@ -70,6 +86,43 @@ require_once('views/admin/content_layouts.php'); ?>
 
 											</div>
                                             <div class="modal-footer"><button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Đóng</button><button class="btn btn-primary" type="submit">Thêm mới</button></div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+							<div class="modal fade" id="editFeatureModal" tabindex="-1" role="dialog" aria-labelledby="editFeatureModal" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Thay đổi</h5><button class="close" type="button" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        </div>
+                                        <form id="form-edit-student" action="index.php?page=admin&controller=features&action=edit" enctype="multipart/form-data" method="post">
+                                            <div class="modal-body">
+												<input type="hidden" name="id" />
+                                                <div class="form-group"><label>Tiêu đề</label><input class="form-control" type="text" placeholder="Tiêu đề" name="title" /></div>
+
+											</div>
+                                            <div class="modal-footer"><button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Đóng</button><button class="btn btn-primary" type="submit">Chỉnh sửa</button></div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+							<div class="modal fade" id="delFeatureModal" tabindex="-1" role="dialog" aria-labelledby="delFeatureModal" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Xóa</h5><button class="close" type="button" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        </div>
+										
+                                        <form id="form-delete-student" action="index.php?page=admin&controller=features&action=delete" enctype="multipart/form-data" method="post">
+												<div class="modal-body">
+													<input type="hidden" name="id" />
+													<p>Bạn đã chắc chắn?</p>
+                                                </div>	
+                                            <div class="modal-footer"><button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Đóng</button>
+											<button class="btn btn-danger" type="submit">Xóa</button></div>
                                         </form>
                                     </div>
                                 </div>

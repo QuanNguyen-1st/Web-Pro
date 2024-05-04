@@ -27,6 +27,8 @@ $(".btn-edit").click(function (e) {
 
 $(".btn-delete").click(function (e) {
     var product_id = $(this).attr('data-bs-id');
+    var img = $(this).attr('data-bs-img'); 
+    $("#delProductModal input[name='img']").val(img);
     $("#delProductModal input[name='id']").val(product_id);
     $('#delProductModal').modal('show');
 });

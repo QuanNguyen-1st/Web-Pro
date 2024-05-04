@@ -22,6 +22,7 @@ class Feature {
         $features = [];
         foreach($req->fetch_all(MYSQLI_ASSOC) as $feature) {
             $features[] = new Feature(
+                $feature['id'],
                 $feature['title'],
                 $feature['createAt'],
             );
