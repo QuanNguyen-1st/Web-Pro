@@ -18,7 +18,7 @@ class Coupon {
 
     static function getCoupon($number) {
         $db = DB::getInstance();
-        $req = $db->query("SELECT 1 FROM coupon WHERE coupon_num = '$number'");
+        $req = $db->query("SELECT 1 FROM coupon WHERE coupon_num = '$number' AND stock > 0");
 
         if ($req->num_rows === 0) {
             return null; // or handle accordingly based on your logic
@@ -36,6 +36,12 @@ class Coupon {
         return $coupon;
     }
 
+    static function use($number) {
+        $db = DB::getInstance();
+        $req = $db->query("UPDATE coupon SET stock = stock - 1 WHERE coupon_num = '$number';");
+        return $req;
+    }
+
     static function insert($stock, $coupon_num, $discount, $expireAt) {
         $db = DB::getInstance();
         $req = $db->query("
@@ -45,9 +51,9 @@ class Coupon {
         return $req;
     }
 
-    static function delete($id) {
+    static function delete($number) {
         $db = DB::getInstance();
-        $req = $db->query("DELETE FROM coupon WHERE id = $id;");
+        $req = $db->query("DELETE FROM coupon WHERE coupon_num = '$number';");
         return $req;
     }
     

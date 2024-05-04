@@ -113,6 +113,7 @@ class CartController extends BaseController
 					$carts[$i]->amount
 				);
 			}
+			Coupon::use($coupon);
 		}
 		echo 'success';
 		
