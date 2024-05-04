@@ -67,7 +67,7 @@ require_once('views/admin/content_layouts.php'); ?>
                                         <div class="modal-header">
                                             <h5 class="modal-title">Thêm mới Coupon</h5><button class="close" type="button" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                         </div>
-                                        <form id="form-add-student" action="index.php?page=admin&controller=news&action=add" enctype="multipart/form-data" method="post">
+                                        <form id="form-add-student" action="index.php?page=admin&controller=coupons&action=add" enctype="multipart/form-data" method="post">
                                             <div class="modal-body">
 												<div class="form-group"><label>Số lượng</label><input class="form-control" type="number" placeholder="Số lượng" name="stock" /></div>
                                                 <div class="form-group"><label>Giảm giá</label><input class="form-control" type="number" placeholder="Giảm giá" name="discount" max="100"/></div>

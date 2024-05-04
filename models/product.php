@@ -167,16 +167,31 @@ class Product {
         return $req;
     }
 
-    static function update($id, $name, $price, $description, $rating, $date, $default_img, $feature_id) {
+    static function update($id, $name, $price, $description, $rating, $default_img, $feature_id) {
         $db = DB::getInstance();
         if ($feature_id === null) {
             $req = $db->query("
-                UPDATE product SET name = '$name', price = $price, description = '$description', rating = $rating, date = '$date', default_img = '$default_img', feature_id = $feature_id WHERE id = $id;
+                UPDATE product 
+                SET name = '$name', 
+                price = $price, 
+                description = '$description', 
+                rating = $rating, 
+                date = NOW(), 
+                default_img = '$default_img', 
+                feature_id = NULL
+                WHERE id = $id;
             ");
             return $req;
         } else {
             $req = $db->query("
-                UPDATE product SET name = '$name', price = $price, description = '$description', rating = $rating, date = '$date', default_img = '$default_img', feature_id = NULL WHERE id = $id;
+                UPDATE product 
+                SET name = '$name', 
+                price = $price, 
+                description = '$description', 
+                rating = $rating, 
+                date = NOW(), 
+                default_img = '$default_img', 
+                feature_id = $feature_id WHERE id = $id;
             ");
             return $req;
         }

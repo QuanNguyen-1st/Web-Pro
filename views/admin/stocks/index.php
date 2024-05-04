@@ -66,7 +66,7 @@ require_once('views/admin/content_layouts.php'); ?>
                                         <div class="modal-header">
                                             <h5 class="modal-title">Thêm mới sản phẩm</h5><button class="close" type="button" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                         </div>
-                                        <form id="form-add-student" action="index.php?page=admin&controller=news&action=add" enctype="multipart/form-data" method="post">
+                                        <form id="form-add-student" action="index.php?page=admin&controller=stocks&action=add" enctype="multipart/form-data" method="post">
                                             <div class="modal-body">
 												<div class="form-group"><label>Tên sản phẩm</label>
 													<select class="form-control" id="select-name" name="product_id" placeholder="Chọn sản phẩm">

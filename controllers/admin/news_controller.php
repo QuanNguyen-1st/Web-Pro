@@ -83,9 +83,10 @@ class NewsController extends BaseController
 			echo "Sorry, your file is too large.";
 		}
 		$file_pointer = $urlcurrent;
-		unlink($file_pointer);
+		
 		move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file);
         News::update($blog_id, $title, $description, $content, $target_file);
+		unlink($file_pointer);
         header('Location: index.php?page=admin&controller=news&action=index');
     }
 

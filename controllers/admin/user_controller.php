@@ -91,10 +91,11 @@ class UserController extends BaseController
 			echo "Sorry, your file is too large.";
 		}
 		$file_pointer = $urlcurrent;
-		unlink($file_pointer);
+		
 		move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file);
 		// Update
 		$change_info = User::update($email, $target_file, $fname, $lname, $gender, $birthday, $phone);
+		unlink($file_pointer);
 		header('Location: index.php?page=admin&controller=user&action=index');
 	}
 

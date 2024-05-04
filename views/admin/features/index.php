@@ -64,7 +64,7 @@ require_once('views/admin/content_layouts.php'); ?>
                                         <div class="modal-header">
                                             <h5 class="modal-title">Thêm mới Feature</h5><button class="close" type="button" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                         </div>
-                                        <form id="form-add-student" action="index.php?page=admin&controller=news&action=add" enctype="multipart/form-data" method="post">
+                                        <form id="form-add-student" action="index.php?page=admin&controller=features&action=add" enctype="multipart/form-data" method="post">
                                             <div class="modal-body">
                                                 <div class="form-group"><label>Tiêu đề</label><input class="form-control" type="text" placeholder="Tiêu đề" name="title" /></div>
 
