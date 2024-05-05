@@ -5,7 +5,7 @@ function calculateTotalPrice() {
     }, 0);
 }
 
-let percent = 1;
+let percent = 0;
 let discount = $('#discount');
 let totalPrice = $('#total-price');
 let finalPrice = $('#final-price');
