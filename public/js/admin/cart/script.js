@@ -6,4 +6,11 @@ $("#tab-cart").DataTable({
     // language: {
     //     url: "//cdn.datatables.net/plug-ins/1.10.25/i18n/Vietnamese.json",
     // },
-})
+});
+
+$(".btn-delete").click(function (e) {
+    var coupon_id = $(this).attr('data-bs-id');
+
+    $("#delCartModal input[name='id']").val(coupon_id);
+    $('#delCartModal').modal('show');
+});

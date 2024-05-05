@@ -79,8 +79,9 @@ $('.add-new-cart').on('click', function (e) {
     })
 });
 
-$('.modal-product').on('show.bs.modal', (e) => {
+$('.modal-product').on('show.bs.modal', function (e) {
     let mainImg = $(this).find('.big-img');
+    console.log(mainImg);
 
     $(this).find('.small-img').each((idx, item) => {
         $(item).click((e) => {

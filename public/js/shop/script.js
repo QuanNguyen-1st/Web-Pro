@@ -9,6 +9,11 @@ $('.add-to-cart').on('click', function (e) {
         return;
     }
 
+    if (imgSrc[0] == "p") {
+        alert('Please enter img');
+        return;
+    }
+
     $.ajax({
         type: 'POST',
         url:'index.php?page=main&controller=cart&action=add',
@@ -39,7 +44,7 @@ $('.add-to-cart').on('click', function (e) {
     })
 });
 
-$('.modal-product').on('show.bs.modal', (e) => {
+$('.modal-product').on('show.bs.modal', function (e) {
     let mainImg = $(this).find('.big-img');
 
     $(this).find('.small-img').each((idx, item) => {

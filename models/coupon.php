@@ -50,7 +50,7 @@ class Coupon {
 
     static function getCoupon($number) {
         $db = DB::getInstance();
-        $req = $db->query("SELECT 1 FROM coupon WHERE coupon_num = '$number' AND stock > 0");
+        $req = $db->query("SELECT * FROM coupon WHERE coupon_num = '$number' AND stock > 0");
 
         if ($req->num_rows === 0) {
             return null; // or handle accordingly based on your logic

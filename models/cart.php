@@ -49,7 +49,7 @@ class Cart {
     static function get($id) {
         $db = DB::getInstance();
         $req = $db->query(
-            "SELECT 1 FROM cart WHERE id = $id"
+            "SELECT * FROM cart WHERE id = $id"
         );
         if ($req->num_rows === 0) {
             return null;
@@ -97,7 +97,7 @@ class Cart {
             $req = $db->query("UPDATE cart SET coupon_id = NULL, purchase = 1, datePurchase = NOW() WHERE id = $id;");
             return $req;
         } else {
-            $req = $db->query("UPDATE cart SET coupon_id = $coupon_id, purchase = 1, datePurchase = NOW() WHERE id = $id;");
+            $req = $db->query("UPDATE cart SET coupon_id = '$coupon_id', purchase = 1, datePurchase = NOW() WHERE id = $id;");
             return $req;
         }
         

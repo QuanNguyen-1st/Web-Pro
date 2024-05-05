@@ -43,6 +43,7 @@ require_once('views/admin/content_layouts.php'); ?>
 										<th scope="col">ID Người dùng</th>
 										<th scope="col">ID Sản phẩm</th>
 										<th scope="col">Kích cỡ</th>
+										<th scope="col">Hình ảnh</th>
 										<th scope="col">Số lượng</th>
 										<th scope="col">Tình trạng</th>
 										<th scope="col">Ngày mua</th>
@@ -51,7 +52,27 @@ require_once('views/admin/content_layouts.php'); ?>
 									</tr>
 								</thead>
 								<tbody>
-
+									<?php 
+										foreach($carts as $cart) {
+											$index = 1;
+											echo'
+											<tr>
+												<td>'.$index++.'</td>
+												<td>'.$cart->user_id.'</td>
+												<td>'.$cart->product_id.'</td>
+												<td>'.$cart->size.'</td>
+												<td style="width:100px;">'.($cart->img ? "<img src=\"$cart->img\" alt=\"\" style=\"width:100%;\">" : "Không có").'</td>
+												<td>'.$cart->amount.'</td>
+												<td>'.($cart->purchase == 0 ? "Chưa mua" : "Đã mua").'</td>
+												<td>'.($cart->datePurchase ? $cart->datePurchase : "Chưa mua").'</td>
+												<td>'.$cart->coupon_id.'</td>
+												<td style="width:80px;">
+												<button class="btn-delete btn btn-danger btn-xs" style="margin-right: 15px" data-bs-toggle="tooltip" data-bs-placement="top" title="Xóa" data-bs-id="'.$cart->id.'"><i style="font-size:17px;" class="fas fa-trash"></i></button>
+												</td>
+											</tr>
+											';
+										}
+									?>
 								</tbody>
 								<!-- <tfoot>
 									<tr class="text-center">
@@ -60,6 +81,25 @@ require_once('views/admin/content_layouts.php'); ?>
 								</tfoot> -->
 							</table>
 							<!-- Or Modal Here -->
+
+							<div class="modal fade" id="delCartModal" tabindex="-1" role="dialog" aria-labelledby="delCartModal" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Xóa</h5><button class="close" type="button" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        </div>
+										
+                                        <form id="form-delete-student" action="index.php?page=admin&controller=carts&action=delete" enctype="multipart/form-data" method="post">
+												<div class="modal-body">
+													<input type="hidden" name="id" />
+													<p>Bạn đã chắc chắn?</p>
+                                                </div>	
+                                            <div class="modal-footer"><button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Đóng</button>
+											<button class="btn btn-danger" type="submit">Xóa</button></div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
 
 						</div>
 					</div>

@@ -160,7 +160,7 @@ CREATE TABLE product (
   description varchar(1000) DEFAULT NULL,
   rating int(11) NOT NULL,
   date datetime DEFAULT NULL,
-  feature_id varchar(11) NOT NULL, 
+  feature_id int(11) DEFAULT NULL, 
   default_img varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -241,11 +241,19 @@ CREATE TABLE cart (
 --
 
 CREATE TABLE feature (
-  id varchar(11) NOT NULL,
+  id int(11) NOT NULL,
   title varchar(255) DEFAULT NULL,
   createAt datetime DEFAULT NULL,
   PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table feature
+--
+
+INSERT INTO feature (id, title, createAt) VALUES
+(1, 'áo', '2022-04-05 10:00:00'),
+(2, 'quần', '2022-04-05 10:00:00');
 
 --
 -- Table structure for table coupon
@@ -328,10 +336,30 @@ ALTER TABLE news
   MODIFY id int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
+-- AUTO_INCREMENT for table feature
+--
+ALTER TABLE feature
+  MODIFY id int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table product
 --
 ALTER TABLE product
   MODIFY id int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table stock
+--
+ALTER TABLE stock
+  MODIFY id int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+
+
+--
+-- AUTO_INCREMENT for table cart
+--
+ALTER TABLE cart
+  MODIFY id int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+
 
 --
 -- Constraints for dumped tables
@@ -357,8 +385,7 @@ COMMIT;
 -- Constraints for table stock
 --
 ALTER TABLE stock
-  ADD CONSTRAINT stock_ibfk_1 FOREIGN KEY (product_id) REFERENCES product (id) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT stock_ibfk_2 FOREIGN KEY (user_id) REFERENCES user (email) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT stock_ibfk_1 FOREIGN KEY (product_id) REFERENCES product (id) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 --
@@ -366,10 +393,7 @@ COMMIT;
 --
 ALTER TABLE cart
   ADD CONSTRAINT cart_ibfk_1 FOREIGN KEY (product_id) REFERENCES product (id) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT cart_ibfk_2 FOREIGN KEY (user_id) REFERENCES user (email) ON DELETE CASCADE ON UPDATE CASCADE,
+  -- ADD CONSTRAINT cart_ibfk_2 FOREIGN KEY (user_id) REFERENCES user (email) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT cart_ibfk_3 FOREIGN KEY (coupon_id) REFERENCES coupon (coupon_num) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
-
-
-
 

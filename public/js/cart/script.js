@@ -19,14 +19,14 @@ $('.cart-item').each((idx, item) => {
 
     subtotal.text(input.val() * unit.text());
     totalPrice.text(calculateTotalPrice());
-    finalPrice.text(totalPrice.text() * percent);
+    finalPrice.text(totalPrice.text() * (1 - percent));
 
     $(input).on('input', (e) => {
         if ($(e.target).val() > 0) {
             let newSubtotal = $(e.target).val() * unit.text();
             subtotal.text(newSubtotal);
             totalPrice.text(calculateTotalPrice());
-            finalPrice.text(totalPrice.text() * percent);
+            finalPrice.text(totalPrice.text() * (1 - percent));
         }
     })
 })
@@ -65,7 +65,7 @@ $('#make-purchase').on('click', (e) => {
         data: data,
         success: function (response) {
             if (response == 'success') {
-                
+                location.href='index.php?page=main&controller=cart&action=index';
             }
             else if (response == 'Not enough stocks') {
                 alert('Not enough stocks');

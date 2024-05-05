@@ -37,7 +37,7 @@ class Stock {
     static function checkAvail($product_id, $size, $img, $amount) {
         $db = DB::getInstance();
         $req = $db->query("
-            SELECT 1 FROM stock WHERE product_id = $product_id AND size = $size AND img = '$img' AND stock_num >= $amount;
+            SELECT 1 FROM stock WHERE product_id = $product_id AND size = $size AND img = '$img';
         ");
         if ($req->num_rows === 0) {
             return false;
@@ -95,6 +95,14 @@ class Stock {
         $db = DB::getInstance();
         $req = $db->query("
             UPDATE stock SET stock_num = $stock_num, product_id = $product_id, size = $size, img = '$img' WHERE id = $id ;
+        ");
+        return $req;
+    }
+
+    static function updateNum($product_id, $size, $img, $amount) {
+        $db = DB::getInstance();
+        $req = $db->query("
+            UPDATE stock SET stock_num = stock_num - $amount WHERE product_id = $product_id AND size = $size AND img = '$img';
         ");
         return $req;
     }

@@ -47,10 +47,11 @@ class CartController extends BaseController
 			exit();
 		}
 
-		$product_id = $_POST['product_id'];
+		$product_id = intval($_POST['product_id']);
         $img = $_POST['img'];
-        $size = $_POST['size'];
-        $amount = $_POST['amount'];
+		$img = substr($img, 22, strlen($img) - 1);
+        $size = intval($_POST['size']);
+        $amount = intval($_POST['amount']);
 
 		if (Stock::checkAvail($product_id, $size, $img, $amount)) {
 			$email = $_SESSION['guest'];
@@ -100,7 +101,7 @@ class CartController extends BaseController
 		if (!isset($_POST['coupon'])) {
 			for ($i = 0; $i < count($cart_ids); $i++) {
 				Cart::makePurchase($cart_ids[$i], null);
-				Stock::update(
+				Stock::updateNum(
 					$carts[$i]->product_id,
 					$carts[$i]->size,
 					$carts[$i]->img,
@@ -111,17 +112,16 @@ class CartController extends BaseController
 			$coupon = $_POST['coupon'];
 			for ($i = 0; $i < count($cart_ids); $i++) {
 				Cart::makePurchase($cart_ids[$i], $coupon);
-				Stock::update(
-					$cart_ids[$i]->product_id,
-					$cart_ids[$i]->size,
-					$cart_ids[$i]->img,
+				Stock::updateNum(
+					$carts[$i]->product_id,
+					$carts[$i]->size,
+					$carts[$i]->img,
 					$carts[$i]->amount
 				);
 			}
 			Coupon::use($coupon);
 		}
 		echo 'success';
-		
-		header('Location:index.php?page=main&controller=cart&action=index');
+		exit();
 	}
 }
