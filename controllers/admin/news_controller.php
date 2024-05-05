@@ -57,7 +57,6 @@ class NewsController extends BaseController
         $content = $_POST['content'];
         $title = $_POST['title'];
 
-        $urlcurrent = $_POST['img'];
 		// Photo
 		$target_dir = "public/img/blog/";
 		$path = $_FILES['fileToUpload']['name'];
@@ -82,11 +81,14 @@ class NewsController extends BaseController
 		if ($_FILES["fileToUpload"]["size"] > 500000) {
 			echo "Sorry, your file is too large.";
 		}
-		$file_pointer = $urlcurrent;
 		
 		move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file);
         News::update($blog_id, $title, $description, $content, $target_file);
-		unlink($file_pointer);
+		
+		if (isset($_POST['img'])) {
+			unlink($_POST['img']);
+		}
+
         header('Location: index.php?page=admin&controller=news&action=index');
     }
 

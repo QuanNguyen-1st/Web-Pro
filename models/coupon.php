@@ -16,6 +16,38 @@ class Coupon {
         $this->expireAt = $expireAt;
     }
 
+    static function radomString($length = 10) {
+		$chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+		
+		$totalChars = strlen($chars);
+
+		$result = '';
+
+		for ($i = 0; $i < $length; $i++) {
+			$index = mt_rand(0, $totalChars - 1);
+			$result = $result . $chars[$index];
+		}
+
+
+		return $result;
+	}
+
+    static function getAll() {
+        $db = DB::getInstance();
+        $req = $db->query("SELECT * FROM coupon");
+        $coupons = [];
+        foreach($req->fetch_all(MYSQLI_ASSOC) as $coupon) {
+            $coupons[] = new Coupon(
+                $coupon['stock'],
+                $coupon['coupon_num'],
+                $coupon['discount'],
+                $coupon['createAt'],
+                $coupon['expireAt']
+            );
+        }
+        return $coupons;
+    }
+
     static function getCoupon($number) {
         $db = DB::getInstance();
         $req = $db->query("SELECT 1 FROM coupon WHERE coupon_num = '$number' AND stock > 0");
@@ -30,7 +62,7 @@ class Coupon {
             $result['coupon_num'],
             $result['discount'],
             $result['createAt'],
-            $result['expireAt'],
+            $result['expireAt']
         );
 
         return $coupon;
@@ -42,12 +74,33 @@ class Coupon {
         return $req;
     }
 
+    static function check($number) {
+        $db = DB::getInstance();
+        $req = $db->query("SELECT 1 FROM coupon WHERE coupon_num = '$number';");
+        if ($req->num_rows === 0) {
+            return false;
+        }
+        return true;
+    }
+
+    static function update($coupon_num, $stock, $discount, $expireAt) {
+        $db = DB::getInstance();
+        $req = $db->query("
+            UPDATE coupon SET
+            stock = $stock,
+            discount = $discount,
+            expireAt = '$expireAt'
+            WHERE coupon_num = '$coupon_num';
+        ");
+        return $req;
+    }
+
     static function insert($stock, $coupon_num, $discount, $expireAt) {
         $db = DB::getInstance();
         $req = $db->query("
-            INSERT INTO coupon (stock, coupon_num, discout, createAt, expireAt)
+            INSERT INTO coupon (stock, coupon_num, discount, createAt, expireAt)
             VALUES ($stock, '$coupon_num', $discount, NOW(), '$expireAt')
-        ");
+        "); 
         return $req;
     }
 

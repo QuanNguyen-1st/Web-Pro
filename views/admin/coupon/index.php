@@ -51,7 +51,26 @@ require_once('views/admin/content_layouts.php'); ?>
 									</tr>
 								</thead>
 								<tbody>
-
+									<?php 
+									foreach ($coupons as $coupon) {
+										$index = 1;
+										echo'
+										<tr class="text-center">
+											<td>'.$index++.'</td>
+											<td>'.$coupon->stock.'</td>
+											<td>'.$coupon->coupon_num.'</td>
+											<td>'.$coupon->discount.'%</td>
+											<td>'.$coupon->createAt.'</td>
+											<td>'.$coupon->expireAt.'</td>
+											<td>
+											<button class="btn-edit btn btn-primary btn-xs" style="margin-right: 5px" data-bs-toggle="tooltip" data-bs-placement="top" title="Chỉnh sửa" data-bs-id="'.$coupon->coupon_num.'" data-bs-stock="'.$coupon->stock.'"  data-bs-discount="'.$coupon->discount.'"  data-bs-expireAt="'.$coupon->expireAt.'"> <i style="font-size:17px;" class="fas fa-edit" ></i></button>
+											<button class="btn-delete btn btn-danger btn-xs" style="margin-right: 5px" data-bs-toggle="tooltip" data-bs-placement="top" title="Xóa" data-bs-id="'.$coupon->coupon_num.'"><i style="font-size:17px;" class="fas fa-trash"></i></button>
+											</th>
+										</tr>
+										
+										';
+									}
+									?>
 								</tbody>
 								<!-- <tfoot>
 									<tr class="text-center">
@@ -71,10 +90,49 @@ require_once('views/admin/content_layouts.php'); ?>
                                             <div class="modal-body">
 												<div class="form-group"><label>Số lượng</label><input class="form-control" type="number" placeholder="Số lượng" name="stock" /></div>
                                                 <div class="form-group"><label>Giảm giá</label><input class="form-control" type="number" placeholder="Giảm giá" name="discount" max="100"/></div>
-                                                <div class="form-group"><label>Ngày hết hạn</label><input class="form-control" type="date" name="expireDate"/></div>
+                                                <div class="form-group"><label>Ngày hết hạn</label><input class="form-control" type="date" name="expireDate" placeholder=""/></div>
 												
 											</div>
                                             <div class="modal-footer"><button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Đóng</button><button class="btn btn-primary" type="submit">Thêm mới</button></div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+							<div class="modal fade" id="editCouponModal" tabindex="-1" role="dialog" aria-labelledby="editCouponModal" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Thêm mới Coupon</h5><button class="close" type="button" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        </div>
+                                        <form id="form-add-student" action="index.php?page=admin&controller=coupons&action=edit" enctype="multipart/form-data" method="post">
+                                            <div class="modal-body">
+											<input type="hidden" name="id" />
+												<div class="form-group"><label>Số lượng</label><input class="form-control" type="number" placeholder="Số lượng" name="stock" /></div>
+                                                <div class="form-group"><label>Giảm giá</label><input class="form-control" type="number" placeholder="Giảm giá" name="discount" max="100"/></div>
+                                                <div class="form-group"><label>Ngày hết hạn</label><input class="form-control" type="date" name="expireAt" placeholder=""/></div>
+												
+											</div>
+                                            <div class="modal-footer"><button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Đóng</button><button class="btn btn-primary" type="submit">Chỉnh sửa</button></div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+							<div class="modal fade" id="delCouponModal" tabindex="-1" role="dialog" aria-labelledby="delCouponModal" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Xóa</h5><button class="close" type="button" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        </div>
+										
+                                        <form id="form-delete-student" action="index.php?page=admin&controller=coupons&action=delete" enctype="multipart/form-data" method="post">
+												<div class="modal-body">
+													<input type="hidden" name="id" />
+													<p>Bạn đã chắc chắn?</p>
+                                                </div>	
+                                            <div class="modal-footer"><button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Đóng</button>
+											<button class="btn btn-danger" type="submit">Xóa</button></div>
                                         </form>
                                     </div>
                                 </div>

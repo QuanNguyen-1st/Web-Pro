@@ -74,8 +74,6 @@ class ProductsController extends BaseController
 			$feature_id = $_POST['feature_id'];
 		}
 
-		$urlcurrent = $_POST['img'];
-
 		$target_dir = "public/img/products/";
 		$path = $_FILES['fileToUpload']['name'];
 		$ext = pathinfo($path, PATHINFO_EXTENSION);
@@ -99,12 +97,15 @@ class ProductsController extends BaseController
 		if ($_FILES["fileToUpload"]["size"] > 500000) {
 			echo "Sorry, your file is too large.";
 		}
-		$file_pointer = $urlcurrent;
 		
 		move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file);
 
 		Product::update($product_id, $name, $price,$description, 5, $target_file, $feature_id);
-		unlink($file_pointer);
+		
+		if (isset($_POST['img'])) {
+			unlink($_POST['img']);
+		}
+		
 		header('Location: index.php?page=admin&controller=products&action=index');
 	}
 }

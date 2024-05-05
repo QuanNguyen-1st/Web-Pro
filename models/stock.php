@@ -15,6 +15,25 @@ class Stock {
         $this->img = $img;
     }
 
+    static function getAll() {
+        $db = DB::getInstance();
+        $req = $db->query("
+            SELECT * FROM stock;
+        ");
+        $stocks = [];
+        foreach ($req->fetch_all(MYSQLI_ASSOC) as $stock) {
+            $stocks[] = new Stock(
+                $stock['id'],
+                $stock['product_id'],
+                $stock['size'],
+                $stock['stock_num'],
+                $stock['img']
+            );
+        }
+        return $stocks;
+
+    }
+
     static function checkAvail($product_id, $size, $img, $amount) {
         $db = DB::getInstance();
         $req = $db->query("
@@ -59,7 +78,7 @@ class Stock {
         return true;
     }
 
-    static function insert($product_id, $size,  $img, $stock_num) {
+    static function insert($product_id, $size, $img, $stock_num) {
         if (!Stock::check($product_id, $size, $img)) {
             $db = DB::getInstance();
             $req = $db->query("
@@ -72,16 +91,20 @@ class Stock {
         }
     }
 
-    static function update($product_id, $size, $img, $stock_num) {
-        if (!Stock::check($product_id, $size, $img)) {
-            return null;
-        } else {
-            $db = DB::getInstance();
-            $req = $db->query("
-                UPDATE stock SET stock_num = $stock_num WHERE product_id = $product_id AND size = $size AND img = '$img';
-            ");
-            return $req;
-        }
+    static function update($id, $product_id, $size, $img, $stock_num) {
+        $db = DB::getInstance();
+        $req = $db->query("
+            UPDATE stock SET stock_num = $stock_num, product_id = $product_id, size = $size, img = '$img' WHERE id = $id ;
+        ");
+        return $req;
+    }
+
+    static function delete($id) {
+        $db = DB::getInstance();
+        $req = $db->query("
+            DELETE FROM stock WHERE id = $id;
+        ");
+        return $req;
     }
 
     static function makePurchase($product_id, $size, $img, $amount) {
