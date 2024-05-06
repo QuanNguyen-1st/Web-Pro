@@ -141,11 +141,11 @@ CREATE TABLE news (
 --
 
 INSERT INTO news (id, status, date, description, content, title, img) VALUES
-(1, 1, '2022-04-05 17:00:00', 'Bán hàng số 1', 'Bán hàng số 1', NULL),
-(3, 1, '2023-12-01 05:13:05', 'Bán hàng số 3', 'Bán hàng số 3', NULL),
-(4, 1, '2023-12-01 05:13:37', 'Bán hàng số 4', 'Bán hàng số 4', NULL),
-(5, 1, '2023-12-01 05:14:23', 'Bán hàng số 5', 'Bán hàng số 5', NULL),
-(6, 1, '2023-12-06 01:46:48', 'Bán hàng số 6', 'Bán hàng số 6', NULL);
+(1, 1, '2022-04-05 17:00:00', 'Bán hàng số 1', 'Bán hàng số 1', 'Bán hàng số 1', NULL),
+(3, 1, '2023-12-01 05:13:05', 'Bán hàng số 3', 'Bán hàng số 3', 'Bán hàng số 3', NULL),
+(4, 1, '2023-12-01 05:13:37', 'Bán hàng số 4', 'Bán hàng số 4', 'Bán hàng số 4', NULL),
+(5, 1, '2023-12-01 05:14:23', 'Bán hàng số 5', 'Bán hàng số 5', 'Bán hàng số 5', NULL),
+(6, 1, '2023-12-06 01:46:48', 'Bán hàng số 6', 'Bán hàng số 6', 'Bán hàng số 6', NULL);
 
 -- --------------------------------------------------------
 
