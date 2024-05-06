@@ -116,9 +116,9 @@ CREATE TABLE creates (
 INSERT INTO creates (news_id, admin_email) VALUES
 (1, 'admin@gmail.com'),
 (3, 'admin@gmail.com'),
-(4, 'sythanh@gmail.com'),
-(5, 'sythanh@gmail.com'),
-(6, 'khang@gmail.com');
+(4, 'nhan@gmail.com'),
+(5, 'nhan@gmail.com'),
+(6, 'quan@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -169,10 +169,10 @@ CREATE TABLE product (
 --
 
 INSERT INTO product (id, price, name, description, rating, date, feature_id, default_img) VALUES
-(7, 100000, 'áo polo', 'thoáng mát', 75, '2022-04-05 10:00:00', '1', NULL),
-(8, 100000, 'áo hoodie', 'phong cách', 80, '2022-04-05 10:00:00', '1', NULL),
-(9, 100000, 'quần short', 'thoải mái', 60, '2022-04-05 10:00:00', '2', NULL),
-(10, 100000, 'quần jean', 'thời trang', 70, '2022-04-05 10:00:00', '2', NULL);
+(7, 100000, 'áo polo', 'thoáng mát', 4, '2022-04-05 10:00:00', '1', NULL),
+(8, 100000, 'áo hoodie', 'phong cách', 5, '2022-04-05 10:00:00', '1', NULL),
+(9, 100000, 'quần short', 'thoải mái', 3, '2022-04-05 10:00:00', '2', NULL),
+(10, 100000, 'quần jean', 'thời trang', 4, '2022-04-05 10:00:00', '2', NULL);
 
 -- --------------------------------------------------------
 
@@ -198,9 +198,9 @@ CREATE TABLE user (
 --
 
 INSERT INTO user (email, profile_photo, fname, lname, gender, birthday, phone, createAt, updateAt, password) VALUES
-('abc@gmail.com', 'public/img/user/2023_12_06_10_16_17am.png', 'Ackerman', 'Levi', 1, 2003, '09001234', '2023-12-05 12:32:27', '2023-12-06 16:07:23', '$2y$10$WRU0UGARBNO6vL5HW77u/u05qJDyfMdontCvz6IrSoYeQXdH9iQGW'),
-('hao.pham1652003@hcmut.edu.vn', 'public/img/user/2023_12_06_10_19_36am.jpg', 'Pham Duc', 'Hao', 1, 2003, '0356806508', '2023-11-28 20:31:38', '2023-12-06 16:19:36', '$2y$10$hEdcuxWJsNfmdXv8O5QA7ej91K37oqU23W6ZauTynWxXnEvJJ5u3q'),
-('phamduchao2k3@gmail.com', 'public/img/user/2023_12_06_10_23_39am.png', 'Phạm Đức', 'Hào', 1, 2002, '0908599907', '2023-12-01 10:52:40', '2023-12-06 16:23:39', '$2y$10$Ws9rU6WAaCU/UiGud9KSAOXeX8sGPnaggucGn7Q.buPHXXRCwtr3C');
+('abcadmin@gmail.com', 'public/img/user/2023_12_06_10_16_17am.png', 'Levi', 'Captain', 1, 2003, '09001234', '2023-12-05 12:32:27', '2023-12-06 16:07:23', '$2y$10$WRU0UGARBNO6vL5HW77u/u05qJDyfMdontCvz6IrSoYeQXdH9iQGW'),
+('nhan.tranys3010@hcmut.edu.vn', 'public/img/user/2023_12_06_10_19_36am.jpg', 'Trần Thiện', 'Nhân', 1, 2003, '0356806508', '2023-11-28 20:31:38', '2023-12-06 16:19:36', '$2y$10$hEdcuxWJsNfmdXv8O5QA7ej91K37oqU23W6ZauTynWxXnEvJJ5u3q'),
+('trannhan496@gmail.com', 'public/img/user/2023_12_06_10_23_39am.png', 'Nguyễn Phúc Minh', 'Quân', 1, 2002, '0908599907', '2023-12-01 10:52:40', '2023-12-06 16:23:39', '$2y$10$Ws9rU6WAaCU/UiGud9KSAOXeX8sGPnaggucGn7Q.buPHXXRCwtr3C');
 
 --
 -- Indexes for dumped tables
