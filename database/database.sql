@@ -26,8 +26,8 @@ CREATE TABLE admin (
 
 INSERT INTO admin (username, email, password, role, createAt, updateAt) VALUES
 ('admin', 'admin@gmail.com', '$2y$10$0PhTjj7OnPIQYbx9LP8w9ehSKZOzRh79hSNI.kk9p9Tq9fWu5lWtK', '1', NULL, '2022-06-12 14:02:17'),
-('khang', 'khang@gmail.com', '$2y$10$FPxhqC1y4a5wrHOIMuLVnu7NfblijUyzOzO0KE3zZ4z1gpjUI8z8y', '0', '2023-12-06 16:18:07', '2023-12-06 16:18:07'),
-('sythanh', 'sythanh@gmail.com', '$2y$10$0PhTjj7OnPIQYbx9LP8w9ehSKZOzRh79hSNI.kk9p9Tq9fWu5lWtK', '0', NULL, '2022-06-12 14:02:09');
+('nhan', 'nhan@gmail.com', '$2y$10$FPxhqC1y4a5wrHOIMuLVnu7NfblijUyzOzO0KE3zZ4z1gpjUI8z8y', '0', '2023-12-06 16:18:07', '2023-12-06 16:18:07'),
+('quan', 'quan@gmail.com', '$2y$10$0PhTjj7OnPIQYbx9LP8w9ehSKZOzRh79hSNI.kk9p9Tq9fWu5lWtK', '0', NULL, '2022-06-12 14:02:09');
 
 -- --------------------------------------------------------
 
